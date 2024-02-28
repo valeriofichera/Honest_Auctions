@@ -22,10 +22,12 @@ fi
 
 # Deploy DenverAuctionNFT
 echo "Deploying DenverAuctionNFT..."
-forge script ./script/DeployDenverAuctionNFT --broadcast --rpc-url $RPC_URL --private-key $PRIVATE_KEY -vvv
+# forge script ./script/DeployDenverAuctionNFT --broadcast --rpc-url $RPC_URL --private-key $PRIVATE_KEY -vvv
+forge create --rpc-url $RPC_URL --private-key $PRIVATE_KEY src/DenverAuctionNFT.sol:DenverAuctionNFT --constructor-args $PUBLIC_ADDRESS
 
 # Deploy EnglishAuction
 echo "Deploying EnglishAuction..."
-forge script ./script/DeployEnglishAuction --broadcast --rpc-url $RPC_URL --private-key $PRIVATE_KEY -vvv
+# forge script ./script/DeployEnglishAuction --broadcast --rpc-url $RPC_URL --private-key $PRIVATE_KEY -vvv
+forge create --rpc-url $RPC_URL --private-key $PRIVATE_KEY src/EnglishAuction.sol:EnglishAuction
 
 echo "Deployment completed."

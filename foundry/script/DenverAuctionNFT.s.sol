@@ -2,7 +2,7 @@
 pragma solidity ^0.8.19;
 
 import {Script, console} from "forge-std/Script.sol";
-import "../src/DenverAuctionNFT.sol";
+import {DenverAuctionNFT  } from "../src/DenverAuctionNFT.sol";
 
 contract DeployDenverAuctionNFT is Script {
 
