@@ -1,12 +1,17 @@
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
 import {Script, console} from "forge-std/Script.sol";
+import "../src/EnglishAuction.sol";
 
-contract EnglishAuctionScript is Script {
-    function setUp() public {}
-
+contract DeployEnglishAuction is Script {
     function run() public {
-        vm.broadcast();
+        vm.startBroadcast();
+        
+        // Deploy the EnglishAuction contract
+        EnglishAuction auction = new EnglishAuction();
+        console.log("EnglishAuction deployed at:", address(auction));
+
+        vm.stopBroadcast();
     }
 }
