@@ -1,9 +1,7 @@
 import { useState } from "react";
-import longlogo from "../assets/Logo_horizontal.svg.svg";
+import longlogo from "../assets/Logo_horizontal.svg";
+import { WalletBtn } from "./WalletBtn";
 
-import "../styles/Animations.css";
-
-import { HashLink as Link} from 'react-router-hash-link';
 
 function Header() {
 
@@ -22,18 +20,18 @@ function Header() {
         <div className='col-start-9 col-span-3 items-center pb-1'>
         <nav className="hidden lg:flex gap-5 items-center fadeInRight">
           
-          <Link to='#Dashboard' smooth className="text-white hover:text-[#2E396D] font-bold text-xl flex flex-col items-center">
+          <div className="text-white hover:text-[#2E396D] font-bold text-xl flex flex-col items-center">
             Dashboard
-          </Link>
-          <Link to='#SDK' smooth className="text-white hover:text-[#2E396D] font-bold text-xl flex flex-col items-center">
+          </div>
+          <div className="text-white hover:text-[#2E396D] font-bold text-xl flex flex-col items-center">
             SDK
-          </Link>
+          </div>
           <a href="https://turtleshell.gitbook.io/introduction/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#2E396D] font-bold text-xl flex flex-col items-center">
             Docs
           </a>
-          <Link to='#Community' smooth className="text-white hover:text-[#2E396D] font-bold text-xl flex flex-col items-center">
-            Community
-          </Link>
+          <div className="text-white hover:text-[#2E396D] font-bold text-xl flex flex-col items-center">
+            <WalletBtn />
+          </div>
         </nav>
         </div>
         </div>

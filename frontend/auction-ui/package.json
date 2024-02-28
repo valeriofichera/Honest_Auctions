@@ -12,6 +12,7 @@
   "dependencies": {
     "@rainbow-me/rainbowkit": "^0.11.0",
     "animate.css": "^4.1.1",
+    "polyfills": "^2.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-hash-link": "^2.4.3",
