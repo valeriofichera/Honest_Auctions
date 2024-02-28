@@ -5,7 +5,6 @@ interface IERC721 {
     function safeTransferFrom(address from, address to, uint tokenId) external;
 
     function transferFrom(address, address, uint) external;
-
 }
 
 contract EnglishAuction {
