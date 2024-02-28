@@ -46,9 +46,10 @@ $ anvil
 ```
 
 ### Deploy
+copy .env.local.example to env.local
 
 ```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+./deploy.sh
 ```
 
 ### Cast
