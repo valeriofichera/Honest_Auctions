@@ -2,7 +2,8 @@
 import './App.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
-
+import MainPage from "./MainPage";
+import BidPage from "./BidPage"; 
 import "@rainbow-me/rainbowkit/styles.css"
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit"
 import { Chain, configureChains, createClient, WagmiConfig } from "wagmi"
@@ -61,7 +62,7 @@ function App() {
 		},
 		{
 			path: "/auction/:00012",
-			element: <AuctionPage />,
+			element: <BidPage />,
 		},
 		
 	])

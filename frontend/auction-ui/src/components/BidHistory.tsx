@@ -1,52 +1,43 @@
-function BidHistory() {
 
-    return (
-  
-      <div className='grid grid-cols-12  items-center justify-center text-center '>
-  
-  
-      <div className='col-start-3 col-span-8 rounded-lg border border-gray-200 bg-white shadow-md p-5'>
-  
-      <div className='grid grid-cols-8'>
-  
-        <div className='col-start-1 col-span-8 p-5'>
-          <div className="text-3xl font-extrabold text-black">Tur7ktz ujtz emo</div>
-          <div className="text-slate-500 font-bold text-lg">Lea9uü98ü9</div>
-        </div>
-  
-        <div className='p-5 col-start-3 col-span-4 gap-5 justify-center items-center '>
-  
-        <a href="/hack" target="_blank" rel="noopener noreferrer">
-          <div className="p-3 m-1 bg-black rounded-xl font-lg text-white hover:bg-slate-500">
-            
-          </div>
-        </a>
-  
-        <a href="/">
-          <div className="p-3 m-1 bg-black rounded-xl font-lg text-white hover:bg-slate-500">
-            See Auctions
-          </div>
-          </a>
-  
-        </div>
-  
-        </div>
-  
-        </div>
-  
-        <div className='col-start-4 col-span-6 text-left mt-12'>
-          <div className="text-slate-500">
-            <div className='font-bold'>About</div>
-            <div className="font-base">
-                asfqergfwqerrgwe wegwegew ggwwerg regewwe werg wegr eqr gqeg ew gwrwegwegw
-            </div>
-          </div>
-        </div>
-  
-  
-  </div>
-  
-    );
-  }
-  
-  export default BidHistory;
+import usdc from "../assets/usdc.svg"
+
+function BidHistory() {
+	return (
+		<>
+			<div className="flex flex-col bg-white m-24 rounded-xl shadow-sm p-5">
+				<div className="grid grid-cols-12 gap-5">
+					<div className="col-start-1 col-span-3 text-xl font-base text-slate-800 text-left pl-3">Bidding History</div>
+
+                    <div className="col-start-1 col-span-12 bg-slate-100 shadow-xl border-green-500/100 p-2 justify-between items-center">
+						<div className="grid grid-cols-12 gap-5">
+							<div className="col-start-1 col-span-3">
+								<div className="flex flex-row gap-3 justify-center items-center">
+									<img className="w-8" src={usdc} alt="" />
+									<div>Price</div>
+								</div>
+							</div>
+
+							<div className="col-start-4 col-span-4">
+								<div className="flex flex-row gap-3 justify-center items-center">
+									<div className="font-bold">by: </div>
+									<div>0xe2D3C55a61BE30ce58324Be5bd188F1bEAc06f58</div>
+								</div>
+							</div>
+
+							<div className="col-start-8 col-span-4">
+								<div className="flex flex-row gap-3 justify-center items-center">
+									<div className="font-bold">Timestamp: </div>
+									<div>12/12/2023 01:01:01</div>
+								</div>
+							</div>
+
+						
+						</div>
+					</div>
+				</div>
+			</div>
+		</>
+	)
+}
+
+export default BidHistory;
