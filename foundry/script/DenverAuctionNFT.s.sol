@@ -1,12 +1,18 @@
-// SPDX-License-Identifier: UNLICENSED
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
 import {Script, console} from "forge-std/Script.sol";
+import {DenverAuctionNFT  } from "../src/DenverAuctionNFT.sol";
 
-contract DenverAuctionNFT is Script {
+contract DeployDenverAuctionNFT is Script {
 
     function run() public {
-        vm.broadcast();
+        vm.startBroadcast();
+        
+        // Deploy the DenverAuctionNFT contract with the deployer's address as the initial owner
+        DenverAuctionNFT nft = new DenverAuctionNFT(msg.sender);
+        console.log("DenverAuctionNFT deployed at:", address(nft));
 
+        vm.stopBroadcast();
     }
 }
