@@ -2,7 +2,7 @@
 pragma solidity ^0.8.19;
 
 import {Test, console} from "forge-std/Test.sol";
-import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
+import "../lib/openzeppelin-contracts/contracts/token/ERC721/ERC721.sol";
 import "../src/DenverAuctionNFT.sol";
 import "../src/EnglishAuction.sol";
 
