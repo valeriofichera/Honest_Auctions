@@ -47,14 +47,12 @@ function MainPage() {
 						</div>
 					</div>
 
-          <div className="col-start-8 col-span-5 border-green-500/100 p-2 justify-between items-center">
+          <div className="col-start-8 col-span-5 border-green-500/100 p-2 justify-between items-center mt-36">
           <div className="grid grid-cols-6 gap-5">
               
-              <div className="col-start-1 col-span-3">
-								
-							</div>
+             
 
-							<div className="col-start-2 col-span-3">
+							<div className="col-start-2 col-span-3 bg-slate-500/90 p-12 rounded-xl gap-5 shadow-xl">
 								<div className="flex flex-col gap-3 justify-center items-center">
 
                 <div className="text-3xl font-light">Highest Bid:</div>
