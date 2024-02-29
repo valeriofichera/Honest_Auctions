@@ -1,18 +1,28 @@
 import { useContractWrite, usePrepareContractWrite } from 'wagmi';
 import { useState, useEffect } from 'react';
 import EnglishAuctionABI from '../../constants/abi/EnglishAuction.ts';
+import DenverAuctionABI from '../../constants/abi/DenverAuctionNFT.ts';
 import { SendTransactionResult } from 'wagmi/actions';
+import { ENGLISH_AUCTION_ADDRESS_SEPOLIA } from '../../constants/deployed_address.ts';
 
-const useContractFunction = (
-    { functionName, args }
-    : { functionName: string;args: any[] }
+const useContractFunction = ({ 
+    functionName,
+    args,
+    smartContractAddress = ENGLISH_AUCTION_ADDRESS_SEPOLIA,
+} : { 
+    functionName: string;
+    args: any[] 
+    smartContractAddress?: `0x${string}`;
+}
   ) => {
   const [status, setStatus] = useState('');
   const [result, setResult] = useState<SendTransactionResult | null>(null);
 
+  const abi = (smartContractAddress === ENGLISH_AUCTION_ADDRESS_SEPOLIA) ? EnglishAuctionABI : DenverAuctionABI;
+
   const { config } = usePrepareContractWrite({
-    address: '0x1EFbd93f7e7F0ccC80fc384A401780189957A7C0', // Consider making this dynamic if needed
-    abi: EnglishAuctionABI,
+    address: smartContractAddress, // Contract address
+    abi: abi,
     functionName,
     chainId: 11155111,
     args,

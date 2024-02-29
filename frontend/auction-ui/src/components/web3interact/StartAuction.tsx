@@ -1,25 +1,17 @@
 
 import { useAccount } from 'wagmi';
-import useContractFunction from '../hooks/useContractFuction';
+import useContractFunction from '../../hooks/useContractFuction';
 
-export const CreateAuction = () => {
+export const StartAuction = () => {
   const { isConnected } = useAccount();
 
-  const nft_address = '0x1EFbd93f7e7F0ccC80fc384A401780189957A7C0';
-  const nft_id = 1;
-  const starting_price = 1;
-  const duration = 100;
-  const reserve_price = 3;
-  
-  // Parameters for creating an auction
+  const auctionId = 6; // Change this to the auction id you want to start
+
+  // Parameters for starting an auction
   const params = {
-    functionName: 'create',
+    functionName: 'start',
     args: [
-      nft_address,
-        nft_id,
-        starting_price,
-        duration,
-        reserve_price
+        auctionId
     ],
   };
 
@@ -34,7 +26,7 @@ export const CreateAuction = () => {
             onClick={execute}
             disabled={isLoading}
           >
-            {isLoading ? 'Creating...' : 'Create Auction'}
+            {isLoading ? 'Creating...' : 'Start Auction'}
           </button>
           <p>{status}</p>
         </>
