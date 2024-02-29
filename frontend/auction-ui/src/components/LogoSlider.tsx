@@ -6,7 +6,7 @@ import fuel from '../assets/Fuel.svg'
 import '../styles/Animations.css';
 
 function LogoSlider() {
-  const logos = [fuel, arb,]
+  const logos = [fuel, arb,fuel, arb,fuel, arb,fuel, arb,fuel, arb,fuel, arb,fuel, arb,fuel, arb,fuel, arb,fuel, arb,fuel, arb,]
   return (
     <div className="overflow-hidden bg-gradient-to-r from-[#8699c2] via-[#2B4D7E] to-[#8699c2] py-5 mt-12 mb-12 w-screen">
       {/* Use flex and items-center to vertically center the logos */}
