@@ -7,7 +7,7 @@ import BidPage from "./BidPage";
 import "@rainbow-me/rainbowkit/styles.css"
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit"
 import { Chain, configureChains, createClient, WagmiConfig } from "wagmi"
-import { mainnet, goerli, hardhat } from "wagmi/chains"
+import { mainnet, goerli, hardhat, sepolia } from "wagmi/chains"
 import { infuraProvider } from "wagmi/providers/infura"
 import { publicProvider } from "wagmi/providers/public"
 
@@ -40,7 +40,7 @@ function App() {
 	// }
 
 	const { chains, provider } = configureChains(
-		[mainnet, goerli, hardhat],
+		[mainnet, goerli, hardhat, sepolia ],
 		[infuraProvider({ apiKey: "51282d8221e64ba0a0b0e9dd604ea35a" }), publicProvider()]
 	)
 
