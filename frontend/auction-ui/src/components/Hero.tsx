@@ -22,7 +22,7 @@ const Hero = () => {
           1000,
           'See who Bids',
           1000,
-          '123 test',
+          '123',
           1000,
           ]}
           speed={55} // Custom Speed from 1-99 - Default Speed: 40
