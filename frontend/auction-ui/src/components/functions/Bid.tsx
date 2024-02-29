@@ -1,9 +1,10 @@
 import { useContractWrite, usePrepareContractWrite } from "wagmi"
-import { contractAddresses, contractAbi } from "../../../constants/index"
+//import { contractAddress, contractAbi } from "../../../constants"
 import { parseEther } from "viem"
 
 function Bid() {
-	const protocolAddress = contractAddresses["31337"]["nonFirewalledProtocol"]
+	const protocolAddress = 0x1 //contractAddress
+    const contractAbi = 123
 	const amount = parseEther("1000")
 
 	const { config: depositConfig, error: depositError } = usePrepareContractWrite({
@@ -18,8 +19,11 @@ function Bid() {
 
 	return (
 		<>
+        <input className='bg-white rounded-lg text-center' type="text" placeholder='Enter Amount in ETH' />
 			<button disabled={!deposit} onClick={() => deposit?.()}>
-				Supply
+                <div className="px-3 py-1 mx-4 bg-black rounded-lg font-3xl text-white hover:bg-slate-500">
+                    Place a Bid
+                </div>
 			</button>
 		</>
 	)

@@ -3,6 +3,7 @@ import Header from './components/Header';
 
 import usdc from "./assets/usdc.svg"
 import NFT from "./assets/example_nft.svg";
+import Bid from './components/functions/Bid';
 
 function MainPage() {
 
@@ -60,13 +61,7 @@ function MainPage() {
                   <div className="text-xl font-light">5 USDC</div>
                   <img className="w-8" src={usdc} alt="" />
                 </div>
-
-                <input className='bg-white rounded-lg text-center' type="text" placeholder='Enter Amount in ETH' />
-                  <a href="/hack" target="_blank" rel="noopener noreferrer">
-                  <div className="px-3 py-1 mx-4 bg-black rounded-lg font-3xl text-white hover:bg-slate-500">
-                    Place a Bid
-                  </div>
-                  </a>
+                  <Bid/>
 								</div>
 							</div>
 
