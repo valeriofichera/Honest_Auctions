@@ -1,4 +1,4 @@
-[
+const DenverNFTABI = [
   {
     "type": "constructor",
     "inputs": [
@@ -536,3 +536,6 @@
     ]
   }
 ]
+
+
+export default DenverNFTABI;

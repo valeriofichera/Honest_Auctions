@@ -1,4 +1,4 @@
-[
+const EnglishAuctionABI = [
   {
     "type": "function",
     "name": "auctionCount",
@@ -449,3 +449,5 @@
     "anonymous": false
   }
 ]
+
+export default EnglishAuctionABI;
