@@ -1,13 +1,15 @@
 import { useContractRead } from 'wagmi';
-import EnglishAuctionABI from '../../../constants/abi/EnglishAuction';
+import EnglishAuctionABI from '../../../constants/abi/EnglishAuction.ts';
 import { ENGLISH_AUCTION_ADDRESS_SEPOLIA } from '../../../constants/deployed_address.ts';
 
-function NumberOfAuctions() {
+function AuctionIdInfo({
+  auctionId,
+}: { auctionId: number }) {
   const { data, isError, isLoading, error} = useContractRead({
     address: ENGLISH_AUCTION_ADDRESS_SEPOLIA,
     abi: EnglishAuctionABI, // Assuming reading from English Auction contract, adjust as necessary
     functionName: 'auction_info',
-    args: [1],
+    args: [auctionId],
     watch: true, // Re-run the function when args change
 });
 
@@ -21,9 +23,9 @@ function NumberOfAuctions() {
 
   return (
     <div>
-      Number of Auctions: {data?.toString()} {/* Assuming 'data' will be the number of auctions */}
+      Auction info: {data?.toString()} {/* Assuming 'data' will be the number of auctions */}
     </div>
   );
 }
 
-export default NumberOfAuctions;
+export default AuctionIdInfo;
