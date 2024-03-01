@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 function AuctionsPage() {
 
     return (
-  
-  <>
+  // className='w-screen h-screen  bg-[#0B0C15]/90 z-[2]
+  <> 
   <HeaderDapp/>
 
     <div className="grid grid-cols-12 gap-5 px-24">
@@ -25,7 +25,7 @@ function AuctionsPage() {
 		</div>
 
 
-  <BidHistory/>
+  
   </>
   
     );

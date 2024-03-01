@@ -57,7 +57,7 @@ function Header() {
   return (
     // change to grid system 
     <>
-      <header className="flex justify-center items-center m-6 py-[25px] rounded-xl h-24 bg-[#0B0C15]/90">
+      <header className="flex justify-center items-center m-6 py-[25px] mt-[-450px] rounded-xl h-24 bg-[#0B0C15]/90">
       <div className="grid grid-cols-4 gap-1 sm:grid-cols-6 sm:gap-2 md:grid-cols-8 md:gap-3 lg:grid-cols-12 lg:gap-4 items-center lg:pr-28 xl:pr-0 lg:mr-12 xl:mr-0">
       <div className="col-start-1 col-span-3">
         <div className="flex flex-row justify-start">
