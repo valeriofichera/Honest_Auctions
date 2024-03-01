@@ -4,7 +4,6 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import LogoSlider from './components/LogoSlider';
 import NFTDisplay from './components/NFTDisplay';
-import { StartAuction } from './components/web3interact/StartAuction';
 import { ReadAuction } from './components/web3fetch/ReadAuctions';
 
 function MainPage() {
@@ -20,8 +19,6 @@ function MainPage() {
   <LogoSlider/>
   <CreateAuction />
   <ApproveAuction />
-  <StartAuction />
-  <ReadAuction />
 
   </>
   

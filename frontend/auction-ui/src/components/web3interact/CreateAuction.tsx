@@ -13,7 +13,7 @@ export const CreateAuction = () => {
   
   // Parameters for creating an auction
   const params = {
-    functionName: 'create',
+    functionName: 'createAndStartAuction',
     args: [
       nft_address,
         nft_id,

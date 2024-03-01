@@ -1,4 +1,4 @@
-const DenverAuctionABI = [
+[
   {
     "type": "constructor",
     "inputs": [
@@ -536,6 +536,3 @@ const DenverAuctionABI = [
     ]
   }
 ]
-
-
-export default DenverAuctionABI;

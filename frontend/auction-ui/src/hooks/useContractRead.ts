@@ -12,7 +12,7 @@ const useContractReadFunction = ({
     args: any[];
     smartContractAddress?: `0x${string}`;
 }) => {
-    const [data, setData] = useState(null);
+    const [data, setData] = useState({});
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState('');
 
