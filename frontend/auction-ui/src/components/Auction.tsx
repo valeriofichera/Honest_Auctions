@@ -18,7 +18,6 @@ function Auctions () {
             <h1>Auctions: </h1>
             <ApproveAuction />
             <CreateAuction />
-            <ReadAuction />
         </div>
     );
 }

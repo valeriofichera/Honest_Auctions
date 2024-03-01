@@ -1,6 +1,7 @@
 import useContractReadFunction from '../../hooks/useContractRead';
 import { BigNumber } from 'ethers';
-import { useAccount } from 'wagmi';
+import { Link } from 'react-router-dom';
+import { useAccount, useBlockNumber } from 'wagmi';
 
 export interface Auction {
     nft: string;
@@ -18,6 +19,8 @@ export interface Auction {
 
 export const ReadAuction = () => {
     const { address } = useAccount();
+    const { data: blockNumber } = useBlockNumber();
+
     const { data: unformattedData, isLoading, error } = useContractReadFunction({
         functionName: 'getAuctionsByOwner',
         args: [address],
@@ -33,7 +36,7 @@ export const ReadAuction = () => {
         reservePrice: auction.reservePrice.toString(),
     })) : [];
 
-    if (isLoading) return <div>Loading...</div>;
+    if (isLoading || !blockNumber) return <div>Loading...</div>;
     if (error) return <div>Error: {(error as any).message || 'Unknown error'}</div>;
 
     return (
@@ -41,18 +44,14 @@ export const ReadAuction = () => {
             <h3>Auction Details for account {address}</h3>
             {formattedData.length > 0 ? (
                 formattedData.map((auction, index) => (
-                    <div key={index}>
-                        <p>NFT ID: {auction.nftId}</p>
-                        <p>Seller: {auction.seller}</p>
-                        <p>Starting Bid: {auction.startingBid}</p>
-                        <p>Ends At: {auction.endAt}</p>
-                        <p>Started: {auction.started ? 'Yes' : 'No'}</p>
-                        <p>Ended: {auction.ended ? 'Yes' : 'No'}</p>
-                        <p>Highest Bidder: {auction.highestBidder}</p>
-                        <p>Highest Bid: {auction.highestBid}</p>
-                        <p>Reserve Price: {auction.reservePrice}</p>
-                        <p>Cancelled: {auction.cancelled ? 'Yes' : 'No'}</p>
-                    </div>
+                    <Link to={`/auction/${auction.nftId}`} key={index} className="p-4 border rounded-lg hover:shadow-lg transition-shadow">
+                        <h4 className="text-xl font-medium">NFT ID: {auction.nftId}</h4>
+                        <p className="text-gray-600">Starting Bid: {auction.startingBid} ETH</p>
+                        <p className="text-gray-600">Ends In: {Number(auction.endAt.toString()) - blockNumber} blocks</p>
+                        <p className="text-gray-600">Highest Bid: {auction.highestBid} ETH</p>
+                        <p className={`text-sm ${auction.started ? 'text-green-500' : 'text-red-500'}`}>{auction.started ? 'Auction Started' : 'Auction Not Started'}</p>
+                        <p className={`text-sm ${auction.ended ? 'text-red-500' : 'text-green-500'}`}>{auction.ended ? 'Auction Ended' : 'Auction Active'}</p>
+                    </Link>
                 ))
             ) : (
                 <p>No auction data found for this account.</p>

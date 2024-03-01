@@ -71,7 +71,7 @@ function App() {
 			element: <CreateAuctionPage />,
 		},
 		{
-			path: "/auction/:00012",
+			path: "/auction/:auctionId",
 			element: <BidPage />,
 		},
 		

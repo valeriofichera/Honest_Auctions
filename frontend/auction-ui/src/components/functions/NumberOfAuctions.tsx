@@ -6,8 +6,8 @@ function NumberOfAuctions() {
   const { data, isError, isLoading, error} = useContractRead({
     address: ENGLISH_AUCTION_ADDRESS_SEPOLIA,
     abi: EnglishAuctionABI, // Assuming reading from English Auction contract, adjust as necessary
-    functionName: 'getHunger',
-    args: [],
+    functionName: 'auction_info',
+    args: [1],
     watch: true, // Re-run the function when args change
 });
 
