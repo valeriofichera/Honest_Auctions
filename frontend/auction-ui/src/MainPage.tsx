@@ -1,10 +1,9 @@
-import { ApproveAuction } from './components/web3interact/AssignNFTtoContract';
-import { CreateAuction } from './components/web3interact/CreateAuction';
+
+import Auctions from './components/Auction';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import LogoSlider from './components/LogoSlider';
-import NFTDisplay from './components/NFTDisplay';
-import { ReadAuction } from './components/web3fetch/ReadAuctions';
+
 
 function MainPage() {
 
@@ -17,8 +16,7 @@ function MainPage() {
   </div> */}
   <Hero/>
   <LogoSlider/>
-  <CreateAuction />
-  <ApproveAuction />
+  <Auctions />
 
   </>
   

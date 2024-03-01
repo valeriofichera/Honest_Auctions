@@ -21,39 +21,49 @@ contract EnglishAuction {
     uint public auctionCount;
     mapping(uint => Auction) public auctions;
     mapping(uint => mapping(address => uint)) public bids;
+    mapping(address => uint[]) public ownerToAuctions; // Maps an owner to their auction IDs
 
-    event AuctionCreated(uint indexed auctionId, address indexed seller, uint duration, uint reservePrice);
-    event Start(uint indexed auctionId);
+    event AuctionCreatedAndStarted(uint indexed auctionId, address indexed seller, uint duration, uint reservePrice);
     event Bid(uint indexed auctionId, address indexed sender, uint amount);
     event Withdraw(uint indexed auctionId, address indexed bidder, uint amount);
     event End(uint indexed auctionId, address winner, uint amount);
     event Cancel(uint indexed auctionId);
 
-    function create(IERC721 _nft, uint _nftId, uint _startingBid, uint _duration, uint _reservePrice) external {
+    function createAndStartAuction(
+        IERC721 _nft, 
+        uint _nftId, 
+        uint _startingBid, 
+        uint _duration, 
+        uint _reservePrice
+    ) external {
         require(_duration > 0, "Duration should be greater than zero");
 
+        // Additional check to prevent duplicate auctions for the same NFT
+        for (uint i = 1; i <= auctionCount; i++) {
+            require(!(auctions[i].nft == _nft && auctions[i].nftId == _nftId && !auctions[i].ended), "Auction for NFT already exists");
+        }
+
         Auction storage auction = auctions[++auctionCount];
-        auction.nft = _nft;
+
+        auction.nft = IERC721(_nft);
         auction.nftId = _nftId;
         auction.seller = payable(msg.sender);
         auction.startingBid = _startingBid;
         auction.endAt = block.timestamp + _duration;
         auction.reservePrice = _reservePrice;
+        auction.started = true; // Mark the auction as started
+        auction.ended = false;
+        auction.highestBidder = address(0);
+        auction.highestBid = 0;
+        auction.cancelled = false;
 
-        emit AuctionCreated(auctionCount, msg.sender, _duration, _reservePrice);
-    }
-
-    function start(uint _auctionId) external {
-        Auction storage auction = auctions[_auctionId];
-        require(msg.sender == auction.seller, "Not seller");
-        require(!auction.started, "Already started");
-        require(!auction.ended, "Already ended");
-        require(!auction.cancelled, "Already cancelled");
-
+        // Transfer the NFT from the seller to the contract
         auction.nft.transferFrom(msg.sender, address(this), auction.nftId);
-        auction.started = true;
 
-        emit Start(_auctionId);
+        // Update mapping of owner to auctions
+        ownerToAuctions[msg.sender].push(auctionCount);
+
+        emit AuctionCreatedAndStarted(auctionCount, msg.sender, _duration, _reservePrice);
     }
 
     function bid(uint _auctionId) external payable {
@@ -130,8 +140,37 @@ contract EnglishAuction {
         return auctions[_auctionId];
     }
 
+    // New function to view all auctions
+    function getAllAuctions() external view returns (Auction[] memory) {
+        Auction[] memory allAuctions = new Auction[](auctionCount);
+        for (uint i = 1; i <= auctionCount; i++) {
+            allAuctions[i - 1] = auctions[i];
+        }
+        return allAuctions;
+    }
+
+    // New function to view all auctions created by a specific address
+    function getAuctionsByOwner(address owner) external view returns (Auction[] memory) {
+        uint[] memory auctionIds = ownerToAuctions[owner];
+        Auction[] memory ownerAuctions = new Auction[](auctionIds.length);
+        for (uint i = 0; i < auctionIds.length; i++) {
+            ownerAuctions[i] = auctions[auctionIds[i]];
+        }
+        return ownerAuctions;
+    }
+
     function deposit_balance(uint _auctionId, address user) external view returns (uint) {
         return bids[_auctionId][user];
+    }
+
+    // New function to view the winning bidder of a specific NFT if the auction has ended
+    function getNftBuyer(uint nftId) external view returns (address) {
+        for (uint i = 1; i <= auctionCount; i++) {
+            if (auctions[i].nftId == nftId && auctions[i].ended) {
+                return auctions[i].highestBidder;
+            }
+        }
+        revert("No completed auction found for this NFT");
     }
 
     function total_auctions() external view returns (uint) {

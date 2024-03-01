@@ -47,4 +47,5 @@ const useContractFunction = ({
   return { execute, status, result, isLoading };
 };
 
+
 export default useContractFunction;

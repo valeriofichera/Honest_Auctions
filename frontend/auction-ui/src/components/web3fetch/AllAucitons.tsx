@@ -1,6 +1,5 @@
 import useContractReadFunction from '../../hooks/useContractRead';
 import { BigNumber } from 'ethers';
-import { useAccount } from 'wagmi';
 
 export interface Auction {
     nft: string;
@@ -16,21 +15,20 @@ export interface Auction {
     cancelled: boolean;
 }
 
-export const ReadAuction = () => {
-    const { address } = useAccount();
+export const AllAuctions = () => {
     const { data: unformattedData, isLoading, error } = useContractReadFunction({
-        functionName: 'getAuctionsByOwner',
-        args: [address],
+        functionName: 'getAllAuctions',
+        args: [],
     });
 
     // Process and format auction data
     const formattedData = Array.isArray(unformattedData) ? unformattedData.map((auction: Auction) => ({
         ...auction,
         nftId: auction.nftId.toString(),
-        startingBid: auction.startingBid.toString(),
-        endAt: auction.endAt.toString(),
-        highestBid: auction.highestBid.toString(),
-        reservePrice: auction.reservePrice.toString(),
+        startingBid: BigNumber.from(auction.startingBid).toString(),
+        endAt: BigNumber.from(auction.endAt).toString(),
+        highestBid: BigNumber.from(auction.highestBid).toString(),
+        reservePrice: BigNumber.from(auction.reservePrice).toString(),
     })) : [];
 
     if (isLoading) return <div>Loading...</div>;
@@ -38,10 +36,11 @@ export const ReadAuction = () => {
 
     return (
         <div>
-            <h3>Auction Details for account {address}</h3>
-            {formattedData.length > 0 ? (
+            <h3>All Auctions</h3>
+            {formattedData && formattedData.length > 0 ? (
                 formattedData.map((auction, index) => (
                     <div key={index}>
+                        <p>NFT: {auction.nft}</p>
                         <p>NFT ID: {auction.nftId}</p>
                         <p>Seller: {auction.seller}</p>
                         <p>Starting Bid: {auction.startingBid}</p>
@@ -55,7 +54,7 @@ export const ReadAuction = () => {
                     </div>
                 ))
             ) : (
-                <p>No auction data found for this account.</p>
+                <p>No auctions data found.</p>
             )}
         </div>
     );
