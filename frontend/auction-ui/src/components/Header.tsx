@@ -67,7 +67,7 @@ function Header() {
 
         {/* desktop nav */}
         <div className='col-start-6 col-span-7 items-center pb-1'>
-        <nav className="hidden lg:flex gap-5 items-center fadeInRight">
+        <nav className="hidden lg:flex gap-5 items-center fadeInRight px-10">
           
           <Link to='#ThresholdAuction' smooth className=" mr-36 text-white hover:text-[#2E396D] font-bold text-xl flex flex-col items-center">
             Hidden NFT Auction
@@ -76,9 +76,9 @@ function Header() {
             Fair-Value Auction
           </Link>
           
-          <a className='w-[150px] h-[40px] py-[15px] px-[17px] text-xl font-bold inline-flex justify-center items-center gap-[10px] text-white rounded-[10px] bg-[#527BFF] hover:bg-[#3a3f6d80] hover:text-[#8BA2C8] hover:cursor-pointer"'>
+          <Link to='/auction' className='pointer w-[200px] h-[40px] py-[15px] px-[17px] text-xl font-bold inline-flex justify-center items-center gap-[10px] text-white rounded-[10px] bg-[#527BFF] hover:bg-[#3a3f6d80] hover:text-[#8BA2C8] hover:cursor-pointer"'>
                 Enter dApp
-            </a>
+            </Link>
         </nav>
         </div>
         </div>

@@ -5,10 +5,12 @@ import NFTDisplay from './components/NFTDisplay';
 import usdc from "./assets/usdc.svg"
 import NFT from "./assets/example_nft.svg";
 import Bid from './components/functions/Bid';
-import NumberOfAuctions from './components/functions/NumberOfAuctions.tsx'
+import AuctionIdInfo from './components/functions/AuctionIdInfo.tsx'
 import { CreateAuction } from './components/functions/CreateAuction';
+import { useParams } from 'react-router-dom';
 
 function BidPage() {
+  const { auctionId } = useParams();
 
     return (
   
@@ -34,8 +36,7 @@ function BidPage() {
                   <div className="text-xl font-light">5 USDC</div>
                   <img className="w-8" src={usdc} alt="" />
                 </div>
-                  <NumberOfAuctions/>
-                  <CreateAuction/>
+                  <AuctionIdInfo auctionId={auctionId} />
 								</div>
 							</div>
 

@@ -209,7 +209,7 @@ const EnglishAuctionABI = [
   },
   {
     "type": "function",
-    "name": "create",
+    "name": "createAndStartAuction",
     "inputs": [
       {
         "name": "_nft",
@@ -279,16 +279,192 @@ const EnglishAuctionABI = [
   },
   {
     "type": "function",
-    "name": "start",
+    "name": "getAllAuctions",
+    "inputs": [],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple[]",
+        "internalType": "struct EnglishAuction.Auction[]",
+        "components": [
+          {
+            "name": "nft",
+            "type": "address",
+            "internalType": "contract IERC721"
+          },
+          {
+            "name": "nftId",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "seller",
+            "type": "address",
+            "internalType": "address payable"
+          },
+          {
+            "name": "startingBid",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "endAt",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "started",
+            "type": "bool",
+            "internalType": "bool"
+          },
+          {
+            "name": "ended",
+            "type": "bool",
+            "internalType": "bool"
+          },
+          {
+            "name": "highestBidder",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "highestBid",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "reservePrice",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "cancelled",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getAuctionsByOwner",
     "inputs": [
       {
-        "name": "_auctionId",
+        "name": "owner",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "tuple[]",
+        "internalType": "struct EnglishAuction.Auction[]",
+        "components": [
+          {
+            "name": "nft",
+            "type": "address",
+            "internalType": "contract IERC721"
+          },
+          {
+            "name": "nftId",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "seller",
+            "type": "address",
+            "internalType": "address payable"
+          },
+          {
+            "name": "startingBid",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "endAt",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "started",
+            "type": "bool",
+            "internalType": "bool"
+          },
+          {
+            "name": "ended",
+            "type": "bool",
+            "internalType": "bool"
+          },
+          {
+            "name": "highestBidder",
+            "type": "address",
+            "internalType": "address"
+          },
+          {
+            "name": "highestBid",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "reservePrice",
+            "type": "uint256",
+            "internalType": "uint256"
+          },
+          {
+            "name": "cancelled",
+            "type": "bool",
+            "internalType": "bool"
+          }
+        ]
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "getNftBuyer",
+    "inputs": [
+      {
+        "name": "nftId",
         "type": "uint256",
         "internalType": "uint256"
       }
     ],
-    "outputs": [],
-    "stateMutability": "nonpayable"
+    "outputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
+    "name": "ownerToAuctions",
+    "inputs": [
+      {
+        "name": "",
+        "type": "address",
+        "internalType": "address"
+      },
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "stateMutability": "view"
   },
   {
     "type": "function",
@@ -318,7 +494,7 @@ const EnglishAuctionABI = [
   },
   {
     "type": "event",
-    "name": "AuctionCreated",
+    "name": "AuctionCreatedAndStarted",
     "inputs": [
       {
         "name": "auctionId",
@@ -412,19 +588,6 @@ const EnglishAuctionABI = [
   },
   {
     "type": "event",
-    "name": "Start",
-    "inputs": [
-      {
-        "name": "auctionId",
-        "type": "uint256",
-        "indexed": true,
-        "internalType": "uint256"
-      }
-    ],
-    "anonymous": false
-  },
-  {
-    "type": "event",
     "name": "Withdraw",
     "inputs": [
       {
@@ -449,5 +612,6 @@ const EnglishAuctionABI = [
     "anonymous": false
   }
 ]
+
 
 export default EnglishAuctionABI;

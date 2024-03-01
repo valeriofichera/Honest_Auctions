@@ -1,3 +1,4 @@
+
 import FheDiagram from './components/FheDiagram';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -16,6 +17,7 @@ function LandingPage() {
   </div> */}
   <Hero/>
   <LogoSlider/>
+
   <ThresholdDiagram/>
   <FheDiagram/>
   </>

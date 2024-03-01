@@ -41,14 +41,11 @@ contract EnglishAuctionTest is Test, MockERC721Receiver {
 
     function testCreateAndStartAuction() public {
         nft.approve(address(auction), 1); // Approve the auction contract to take the NFT
-        auction.create(IERC721(address(nft)), 1, 1 ether, 2 days, 1.5 ether); // Create an auction
+        auction.createAndStartAuction(IERC721(address(nft)), 1, 1 ether, 2 days, 1.5 ether); // Correctly call createAndStartAuction
         uint auctionId = auction.auctionCount(); // Get the newly created auction ID
-        assertTrue(auctionId > 0); // Check that an auction was created
+        assertTrue(auctionId > 0, "Auction should be created"); // Check that an auction was created
 
-        auction.start(auctionId); // Start the auction
         EnglishAuction.Auction memory auctionInfo = auction.auction_info(auctionId);
-
-        assertTrue(auctionInfo.started); // Check that the auction has started
+        assertTrue(auctionInfo.started, "Auction should have started"); // Check that the auction has started
     }
-
 }
