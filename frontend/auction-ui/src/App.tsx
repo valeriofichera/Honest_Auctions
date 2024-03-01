@@ -3,7 +3,11 @@ import './App.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
 import LandingPage from "./LandingPage";
-import BidPage from "./BidPage"; 
+
+import BidFairValue from "./BidFairValue";
+import BidHidden from "./BidHidden";
+
+
 import "@rainbow-me/rainbowkit/styles.css"
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit"
 import { Chain, configureChains, createClient, WagmiConfig } from "wagmi"
@@ -70,9 +74,13 @@ function App() {
 			path: "/create-auction",
 			element: <CreateAuctionPage />,
 		},
+    {
+			path: "/auction/hidden/:auctionId",
+			element: <BidHidden />,
+		},
 		{
-			path: "/auction/:auctionId",
-			element: <BidPage />,
+			path: "/auction/fair-value/:auctionId",
+			element: <BidFairValue />,
 		},
 		
 	])

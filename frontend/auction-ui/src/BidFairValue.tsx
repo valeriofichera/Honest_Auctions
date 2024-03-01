@@ -1,16 +1,16 @@
-import BidHistory from './components/BidHistory';
-import HeaderDapp from './components/HeaderDapp';
-import NFTDisplay from './components/NFTDisplay';
+import BidHistory from './components/BidHistory.tsx';
+import HeaderDapp from './components/HeaderDapp.tsx';
+import NFTDisplay from './components/NFTDisplay.tsx';
 
 import usdc from "./assets/usdc.svg"
 import NFT from "./assets/example_nft.svg";
-import Bid from './components/functions/Bid';
+import Bid from './components/functions/Bid.tsx';
 import AuctionIdInfo from './components/functions/AuctionIdInfo.tsx'
-import { CreateAuction } from './components/functions/CreateAuction';
+import { CreateAuction } from './components/functions/CreateAuction.tsx';
 import { useParams } from 'react-router-dom';
 import BidNonFunctional from './components/functions/BidNonFunctional.tsx';
 
-function BidPage() {
+function BidFairValue() {
   const { auctionId } = useParams();
 
   if (auctionId) return (
@@ -57,4 +57,4 @@ function BidPage() {
     );
   }
   
-  export default BidPage;
+  export default BidFairValue;

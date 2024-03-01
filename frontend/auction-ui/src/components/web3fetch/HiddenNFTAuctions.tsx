@@ -2,6 +2,7 @@ import useContractReadFunction from '../../hooks/useContractRead';
 import { BigNumber } from 'ethers';
 import { useBlockNumber } from 'wagmi';
 import { Link } from 'react-router-dom'; 
+import Hidden_NFT from '../../assets/no_nft_icon.svg'
 
 export interface Auction {
     nft: string;
@@ -46,15 +47,20 @@ export const HiddenNFTAuctions = () => {
                 </Link>
             </div>
             {formattedData && formattedData.length > 0 ? (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
                     {formattedData.map((auction, index) => (
-                        <Link to={`/auction/${auction.nftId}`} key={index} className="p-4 border rounded-lg hover:shadow-lg transition-shadow">
+                        <Link to={`/auction/hidden/${auction.nftId}`} key={index} className="p-4 border rounded-lg hover:shadow-lg transition-shadow w-fit">
+                            <div className='flex flex-row justify-between items-center'>
+                                <img src={Hidden_NFT} alt="NFT" className='h-32 mr-10'/>
+                            <div>
                             <h4 className="text-xl font-medium">NFT ID: {auction.nftId}</h4>
                             <p className="text-gray-600">Starting Bid: {auction.startingBid} ETH</p>
                             <p className="text-gray-600">Ends At: {Number(auction.endAt.toString()) - blockNumber}</p>
                             <p className="text-gray-600">Highest Bid: {auction.highestBid} ETH</p>
                             <p className={`text-sm ${auction.started ? 'text-green-500' : 'text-red-500'}`}>{auction.started ? 'Auction Started' : 'Auction Not Started'}</p>
                             <p className={`text-sm ${auction.ended ? 'text-red-500' : 'text-green-500'}`}>{auction.ended ? 'Auction Ended' : 'Auction Active'}</p>
+                            </div>
+                            </div>
                         </Link>
                     ))}
                 </div>

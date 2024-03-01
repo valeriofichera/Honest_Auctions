@@ -60,7 +60,7 @@ export default function FheDiagram() {
                 </div>
 
             </div>
-            <a className='lg:ml-12 xl:ml-24 mt-12 w-[210px] h-[60px] py-[15px] px-[17px] text-2xl font-bold inline-flex justify-center items-center gap-[10px] text-white rounded-[10px] bg-[#527BFF] hover:bg-[#3a3f6d80] hover:text-[#8BA2C8] hover:cursor-pointer"'>
+            <a className='lg:ml-12 xl:ml-24 mt-12 w-[210px] h-[60px] py-[15px] px-[17px] text-2xl font-bold inline-flex justify-center items-center gap-[10px] text-white rounded-[10px] bg-[#527BFF] hover:bg-[#3a3f6d80] hover:text-[#8BA2C8] hover:cursor-pointer'>
                 Bid on NFTs
             </a>
         </div>
