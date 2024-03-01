@@ -38,10 +38,10 @@ export const AllAuctions = () => {
             {formattedData && formattedData.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {formattedData.map((auction, index) => (
-                        <Link to={`/auctions/${auction.nftId}`} key={index} className="p-4 border rounded-lg hover:shadow-lg transition-shadow">
+                        <Link to={`/auction/${auction.nftId}`} key={index} className="p-4 border rounded-lg hover:shadow-lg transition-shadow">
                             <h4 className="text-xl font-medium">NFT ID: {auction.nftId}</h4>
                             <p className="text-gray-600">Starting Bid: {auction.startingBid} ETH</p>
-                            <p className="text-gray-600">Ends In: {Number(auction.endAt.toString()) - blockNumber} blocks</p>
+                            <p className="text-gray-600">Ends At: {Number(auction.endAt.toString()) - blockNumber}</p>
                             <p className="text-gray-600">Highest Bid: {auction.highestBid} ETH</p>
                             <p className={`text-sm ${auction.started ? 'text-green-500' : 'text-red-500'}`}>{auction.started ? 'Auction Started' : 'Auction Not Started'}</p>
                             <p className={`text-sm ${auction.ended ? 'text-red-500' : 'text-green-500'}`}>{auction.ended ? 'Auction Ended' : 'Auction Active'}</p>
