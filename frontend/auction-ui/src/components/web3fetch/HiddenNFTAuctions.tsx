@@ -14,7 +14,7 @@ export interface Auction {
     highestBid: BigNumber;
 }
 
-export const AllAuctions = () => {
+export const HiddenNFTAuctions = () => {
     const { data: blockNumber } = useBlockNumber();
     const { data: unformattedData, isLoading, error } = useContractReadFunction({
         functionName: 'getAllAuctions',
@@ -33,8 +33,18 @@ export const AllAuctions = () => {
     if (error) return <div className="text-red-500">Error: {(error as any).message || 'Unknown error'}</div>;
 
     return (
-        <div className="mt-5 p-6">
-            <h3 className="text-2xl font-semibold mb-4">All Auctions</h3>
+        <div className="p-6">
+            <div className='flex flex-row justify-between items-start'>
+            <div>
+            <h3 className="text-2xl font-semibold mb-4">Hidden NFT Auctions</h3>
+            <div className='text-md mt-[-10px] mb-5'>NFTs will reveal after the Auctions ends</div>
+            </div>
+                <Link to="/create-auction">
+                <div className='w-[170px] h-[40px] py-[5px] px-[5px] text-xl font-bold inline-flex justify-center items-center gap-[10px] text-white rounded-[10px] bg-[#527BFF] hover:bg-[#3a3f6d80] hover:text-[#8BA2C8] hover:cursor-pointer'>
+                    Create Auction
+                </div>
+                </Link>
+            </div>
             {formattedData && formattedData.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {formattedData.map((auction, index) => (
