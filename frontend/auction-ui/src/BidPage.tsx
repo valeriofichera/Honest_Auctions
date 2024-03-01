@@ -12,7 +12,7 @@ import { useParams } from 'react-router-dom';
 function BidPage() {
   const { auctionId } = useParams();
 
-    return (
+  if (auctionId) return (
   
   <>
   <HeaderDapp/>
@@ -36,7 +36,7 @@ function BidPage() {
                   <div className="text-xl font-light">5 USDC</div>
                   <img className="w-8" src={usdc} alt="" />
                 </div>
-                  <AuctionIdInfo auctionId={auctionId} />
+                  <AuctionIdInfo auctionId={Number(auctionId)} />
 								</div>
 							</div>
 

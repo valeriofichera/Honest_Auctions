@@ -36,7 +36,7 @@ const useContractReadFunction = ({
         }
     }, [readData, isError, readLoading]);
 
-    return { data, isLoading, error };
+    return { data, isLoading, error, isError};
 };
 
 export default useContractReadFunction;
