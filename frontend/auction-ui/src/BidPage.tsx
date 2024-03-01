@@ -5,6 +5,7 @@ import NFTDisplay from './components/NFTDisplay';
 import usdc from "./assets/usdc.svg"
 import NFT from "./assets/example_nft.svg";
 import Bid from './components/functions/Bid';
+import { CreateAuction } from './components/functions/CreateAuction';
 
 function BidPage() {
 
@@ -33,6 +34,7 @@ function BidPage() {
                   <img className="w-8" src={usdc} alt="" />
                 </div>
                   <Bid/>
+                  <CreateAuction/>
 								</div>
 							</div>
 
