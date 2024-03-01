@@ -7,7 +7,7 @@ export const CreateAuction = () => {
   const { isConnected } = useAccount();
 
   const nft_address = NFT_ADDRESS_SEPOLIA;
-  const nft_id = 1;
+  const nft_id = 3;
   const starting_price = 1;
   const duration = 100;
   const reserve_price = 3;

@@ -1,5 +1,6 @@
 import useContractReadFunction from '../../hooks/useContractRead';
 import { BigNumber } from 'ethers';
+import { useBlockNumber } from 'wagmi';
 
 export interface Auction {
     nft: string;
@@ -16,6 +17,8 @@ export interface Auction {
 }
 
 export const AllAuctions = () => {
+    const { data: blockNumber, error: blockErr } = useBlockNumber();
+
     const { data: unformattedData, isLoading, error } = useContractReadFunction({
         functionName: 'getAllAuctions',
         args: [],
@@ -45,6 +48,7 @@ export const AllAuctions = () => {
                         <p>Seller: {auction.seller}</p>
                         <p>Starting Bid: {auction.startingBid}</p>
                         <p>Ends At: {auction.endAt}</p>
+                        <p>Remaining Blocks: {blockNumber ? (parseInt(auction.endAt.toString()) - blockNumber) : '-'}</p>
                         <p>Started: {auction.started ? 'Yes' : 'No'}</p>
                         <p>Ended: {auction.ended ? 'Yes' : 'No'}</p>
                         <p>Highest Bidder: {auction.highestBidder}</p>
