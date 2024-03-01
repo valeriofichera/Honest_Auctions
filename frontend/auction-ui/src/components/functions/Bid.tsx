@@ -21,7 +21,7 @@ function Bid() {
 		<>
         <input className='bg-white rounded-lg text-center' type="text" placeholder='Enter Amount in ETH' />
 			<button disabled={!deposit} onClick={() => deposit?.()}>
-                <div className="px-3 py-1 mx-4 bg-black rounded-lg font-3xl text-white hover:bg-slate-500">
+                <div className="">
                     Place a Bid
                 </div>
 			</button>

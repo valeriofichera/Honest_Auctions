@@ -1,6 +1,6 @@
 import { useContractWrite, usePrepareContractWrite, useAccount } from 'wagmi';
 
-import EnglishAuctionABI from '../../constants/abi/EnglishAuction.ts';
+import EnglishAuctionABI from '../../../constants/abi/EnglishAuction.ts';
 import { useEffect, useState } from 'react';
 
 export const CreateAuction = () => {
