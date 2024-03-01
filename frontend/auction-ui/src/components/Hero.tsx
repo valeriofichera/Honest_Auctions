@@ -2,13 +2,14 @@
 import './Hero.css';
 import 'animate.css';
 import { TypeAnimation } from 'react-type-animation';
+import arrow from '../assets/arrow.svg'
 
 
 
 const Hero = () => {
   return (
     
-    <div className='Hero-Section'>
+    <div className='Hero-Section my-[250px]'>
     
         <div className="hero-text">
         
@@ -16,13 +17,13 @@ const Hero = () => {
         <TypeAnimation
           // Same String at the start will only be typed once, initially
           sequence={[
-          'Auction NFTs',
+          'Buy NFTs at fair-value',
           1000,
-          '',
+          'Avoid FOMO & Market Manipulation',
           1000,
-          'See who Bids',
+          'Gamified Auction Experience',
           1000,
-          '123',
+          '& more',
           1000,
           ]}
           speed={55} // Custom Speed from 1-99 - Default Speed: 40
@@ -31,11 +32,6 @@ const Hero = () => {
           repeat={Infinity} // Repeat this Animation Sequence infinitely
         />
 
-        </div>
-
-        <div>
-
-        
         </div>
       
   </div>

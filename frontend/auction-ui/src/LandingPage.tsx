@@ -1,11 +1,13 @@
 
 import Auctions from './components/Auction';
+import FheDiagram from './components/FheDiagram';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import LogoSlider from './components/LogoSlider';
+import NFTDisplay from './components/NFTDisplay';
+import ThresholdDiagram from './components/ThresholdDiagram';
 
-
-function MainPage() {
+function LandingPage() {
 
     return (
   
@@ -18,9 +20,11 @@ function MainPage() {
   <LogoSlider/>
   <Auctions />
 
+  <ThresholdDiagram/>
+  <FheDiagram/>
   </>
   
     );
   }
   
-  export default MainPage;
+  export default LandingPage;

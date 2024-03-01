@@ -2,12 +2,12 @@
 import './App.css'
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 
-import MainPage from "./MainPage";
+import LandingPage from "./LandingPage";
 import BidPage from "./BidPage"; 
 import "@rainbow-me/rainbowkit/styles.css"
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit"
 import { Chain, configureChains, createClient, WagmiConfig } from "wagmi"
-import { mainnet, goerli, hardhat, sepolia } from "wagmi/chains"
+import { sepolia, goerli, arbitrum, arbitrumGoerli, baseGoerli, foundry, hardhat } from "wagmi/chains"
 import { infuraProvider } from "wagmi/providers/infura"
 import { publicProvider } from "wagmi/providers/public"
 
@@ -40,12 +40,12 @@ function App() {
 	// }
 
 	const { chains, provider } = configureChains(
-		[mainnet, goerli, hardhat, sepolia ],
+		[sepolia, goerli, arbitrum, arbitrumGoerli, baseGoerli, foundry, hardhat],
 		[infuraProvider({ apiKey: "51282d8221e64ba0a0b0e9dd604ea35a" }), publicProvider()]
 	)
 
 	const { connectors } = getDefaultWallets({
-		appName: "Firewall Demo",
+		appName: "True Price Auctions",
 		chains,
 	})
 
@@ -58,7 +58,7 @@ function App() {
   const router = createBrowserRouter([
 		{
 			path: "/",
-			element: <MainPage />,
+			element: <LandingPage />,
 		},
 		{
 			path: "/auction/:00012",
@@ -70,9 +70,10 @@ function App() {
 
 
 	return (
+  
 		<WagmiConfig client={wagmiClient}>
 			<RainbowKitProvider chains={chains}>
-				<div className="selection:bg-red-500/100 selection:text-slate-100/100">
+				<div className='selection:bg-[#527BFF] selection:text-[#0B0C15]'>
 				<RouterProvider router={router} />
 				</div>
 			</RainbowKitProvider>

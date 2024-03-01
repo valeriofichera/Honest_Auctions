@@ -45,6 +45,7 @@ import Hamburger from "./Hamburger";
 import "../styles/Animations.css";
 
 import { HashLink as Link} from 'react-router-hash-link';
+import { WalletBtn } from "./WalletBtn";
 
 function Header() {
   const [nav, setNav] = useState(false);
@@ -66,19 +67,12 @@ function Header() {
         </div>
 
         {/* desktop nav */}
-        <div className='col-start-6 col-span-7 items-center pb-1'>
+        <div className='col-start-10 col-span-3 items-center pb-1'>
         <nav className="hidden lg:flex gap-5 items-center fadeInRight">
           
-          <Link to='#ThresholdAuction' smooth className=" mr-36 text-white hover:text-[#2E396D] font-bold text-xl flex flex-col items-center">
-            Hidden NFT Auction
-          </Link>
-          <Link to='#FheAuction' smooth className="mr-48 text-white hover:text-[#2E396D] font-bold text-xl flex flex-col items-center">
-            Fair-Value Auction
-          </Link>
           
-          <a className='w-[150px] h-[40px] py-[15px] px-[17px] text-xl font-bold inline-flex justify-center items-center gap-[10px] text-white rounded-[10px] bg-[#527BFF] hover:bg-[#3a3f6d80] hover:text-[#8BA2C8] hover:cursor-pointer"'>
-                Enter dApp
-            </a>
+          
+          <WalletBtn/>
         </nav>
         </div>
         </div>
