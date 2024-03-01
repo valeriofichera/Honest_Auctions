@@ -12,7 +12,7 @@ function AuctionsPage() {
 
     <div className="grid grid-cols-12 gap-5 px-24">
       <div className="col-start-1 col-span-12">
-        <div className='rounded-3xl bg-slate-400/80 bg-opacity-75 shadow-xl border-green-500/100 p-2 justify-between items-center'>
+        <div className='rounded-3xl bg-[#0B0C15]/90 bg-opacity-75 shadow-xl border-green-500/100 p-2 justify-between items-center'>
           <Link to="/create-auction" className=" text-white bg-slate-500">
             <div className="flex flex-col  justify-center items-center">
               <div className="text-2xl font-light">Create Auction</div>
