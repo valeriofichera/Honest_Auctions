@@ -7,7 +7,11 @@ import NFT from "./assets/example_nft.svg";
 import Bid from './components/functions/Bid';
 import AuctionIdInfo from './components/functions/AuctionIdInfo.tsx'
 import { CreateAuction } from './components/functions/CreateAuction';
+<<<<<<< Updated upstream
 import { useParams } from 'react-router-dom';
+=======
+import BidNonFunctional from './components/functions/BidNonFunctional.tsx';
+>>>>>>> Stashed changes
 
 function BidPage() {
   const { auctionId } = useParams();
@@ -36,7 +40,12 @@ function BidPage() {
                   <div className="text-xl font-light">5 USDC</div>
                   <img className="w-8" src={usdc} alt="" />
                 </div>
+<<<<<<< Updated upstream
                   <AuctionIdInfo auctionId={Number(auctionId)} />
+=======
+                  <BidNonFunctional/>
+                  <CreateAuction/>
+>>>>>>> Stashed changes
 								</div>
 							</div>
 
