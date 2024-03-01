@@ -1,7 +1,6 @@
 import { ApproveAuction } from './web3interact/AssignNFTtoContract';
 import { CreateAuction } from './web3interact/CreateAuction';
 import { ReadAuction } from './web3fetch/ReadAuctions';
-import { AllAuctions } from './web3fetch/AllAucitons';
 import { useAccount } from 'wagmi';
 
 function Auctions () {
@@ -20,7 +19,6 @@ function Auctions () {
             <ApproveAuction />
             <CreateAuction />
             <ReadAuction />
-            <AllAuctions />
         </div>
     );
 }

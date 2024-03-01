@@ -10,6 +10,8 @@ import { Chain, configureChains, createClient, WagmiConfig } from "wagmi"
 import { sepolia, goerli, arbitrum, arbitrumGoerli, baseGoerli, foundry, hardhat } from "wagmi/chains"
 import { infuraProvider } from "wagmi/providers/infura"
 import { publicProvider } from "wagmi/providers/public"
+import AuctionsPage from './AuctionsPage';
+import CreateAuctionPage from './CreateAuctionPage';
 
 function App() {
 	// const mantleTestnet: Chain = {
@@ -59,6 +61,14 @@ function App() {
 		{
 			path: "/",
 			element: <LandingPage />,
+		},
+		{
+			path: "/auction",
+			element: <AuctionsPage />,
+		},
+		{
+			path: "/create-auction",
+			element: <CreateAuctionPage />,
 		},
 		{
 			path: "/auction/:00012",
