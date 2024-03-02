@@ -1,27 +1,23 @@
 import {
-  conditions,
   decrypt,
-  domains,
   encrypt,
   getPorterUri,
   initialize,
-  ThresholdMessageKit,
-} from '@nucypher/taco';
-import { Mumbai, Sepolia, useEthers } from '@usedapp/core';
-import { ethers } from 'ethers';
-import React, { useEffect, useState } from 'react';
-import { useProvider, useSigner, useAccount, useConnect, useDisconnect, useNetwork } from 'wagmi';
-import { Decrypt } from './Decrypt';
-import { Encrypt } from './Encrypt';
-import { NFTConditionBuilder } from './NFTConditionBuilder';
-import { Spinner } from './Spinner';
-import { DEFAULT_DOMAIN, DEFAULT_RITUAL_ID } from './config';
+  type ThresholdMessageKit,
+  type conditions
+} from "@nucypher/taco";
+import { useEffect, useState } from "react";
+import { useAccount, useProvider, useSigner } from "wagmi";
+import { Decrypt } from "./Decrypt";
+import { Encrypt } from "./Encrypt";
+import { NFTConditionBuilder } from "./NFTConditionBuilder";
+import { Spinner } from "./Spinner";
+import { DEFAULT_DOMAIN, DEFAULT_RITUAL_ID } from "./config";
 
 export default function Taco() {
   const provider = useProvider();
   const { data: signer } = useSigner();
   const { isConnected } = useAccount();
-  const { disconnect: deactivate } = useDisconnect();
 
   const [loading, setLoading] = useState(false);
   const [condition, setCondition] = useState<conditions.condition.Condition>();
@@ -58,7 +54,7 @@ export default function Taco() {
       return;
     }
     setLoading(true);
-    setDecryptedMessage('');
+    setDecryptedMessage("");
     setDecryptionErrors([]);
 
     const decryptedMessage = await decrypt(
@@ -88,7 +84,6 @@ export default function Taco() {
   return (
     <div>
       <NFTConditionBuilder
-        enabled={true}
         condition={condition}
         setConditions={setCondition}
       />
@@ -96,7 +91,7 @@ export default function Taco() {
       <Encrypt
         enabled={!!condition}
         encrypt={encryptMessage}
-        encryptedMessage={encryptedMessage!}
+        encryptedMessage={encryptedMessage}
       />
 
       <Decrypt

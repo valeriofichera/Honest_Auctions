@@ -3,7 +3,6 @@ import Header from './components/Header';
 import NFTDisplay from './components/NFTDisplay';
 
 import usdc from "./assets/usdc.svg"
-import NFT from "./assets/example_nft.svg";
 import Bid from './components/functions/Bid';
 
 function MainPage() {
