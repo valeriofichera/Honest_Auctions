@@ -49,7 +49,7 @@ export const HiddenNFTAuctions = () => {
             {formattedData && formattedData.length > 0 ? (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
                     {formattedData.map((auction, index) => (
-                        <Link to={`/auction/hidden/${auction.auctionId}`} key={index} className="p-4 border rounded-lg hover:shadow-lg transition-shadow w-fit">
+                        <Link to={`/auction/hidden/${index + 1}`} key={index} className="p-4 border rounded-lg hover:shadow-lg transition-shadow w-fit">
                             <div className='flex flex-row justify-between items-center'>
                                 <img src={Hidden_NFT} alt="NFT" className='h-32 mr-10'/>
                             <div>
