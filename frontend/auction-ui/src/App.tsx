@@ -11,13 +11,16 @@ import BidHidden from "./BidHidden";
 import "@rainbow-me/rainbowkit/styles.css"
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit"
 import { Chain, configureChains, createClient, WagmiConfig } from "wagmi"
-import { sepolia, goerli, arbitrum, arbitrumGoerli, baseGoerli, foundry, hardhat } from "wagmi/chains"
+import { sepolia, goerli, arbitrum, arbitrumGoerli, baseGoerli, foundry, hardhat, polygonMumbai } from "wagmi/chains"
 import { infuraProvider } from "wagmi/providers/infura"
 import { publicProvider } from "wagmi/providers/public"
 import AuctionsPage from './AuctionsPage';
 import CreateAuctionPage from './CreateAuctionPage';
+import { Buffer } from 'buffer';
 
 function App() {
+	window.Buffer = Buffer;
+
 	// const mantleTestnet: Chain = {
 	// 	id: 31337,
 	// 	name: "Mantle Testnet",
@@ -46,7 +49,7 @@ function App() {
 	// }
 
 	const { chains, provider } = configureChains(
-		[sepolia, goerli, arbitrum, arbitrumGoerli, baseGoerli, foundry, hardhat],
+		[sepolia, goerli, arbitrum, arbitrumGoerli, baseGoerli, foundry, hardhat, polygonMumbai],
 		[infuraProvider({ apiKey: "51282d8221e64ba0a0b0e9dd604ea35a" }), publicProvider()]
 	)
 
