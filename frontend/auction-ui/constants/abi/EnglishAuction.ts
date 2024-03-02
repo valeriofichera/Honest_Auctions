@@ -444,6 +444,25 @@ const EnglishAuctionABI = [
   },
   {
     "type": "function",
+    "name": "isAuctionOver",
+    "inputs": [
+      {
+        "name": "_auctionId",
+        "type": "uint256",
+        "internalType": "uint256"
+      }
+    ],
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool",
+        "internalType": "bool"
+      }
+    ],
+    "stateMutability": "view"
+  },
+  {
+    "type": "function",
     "name": "ownerToAuctions",
     "inputs": [
       {
@@ -612,6 +631,5 @@ const EnglishAuctionABI = [
     "anonymous": false
   }
 ]
-
 
 export default EnglishAuctionABI;

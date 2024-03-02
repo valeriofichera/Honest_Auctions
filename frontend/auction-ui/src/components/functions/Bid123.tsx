@@ -12,7 +12,7 @@ export const Bid123 = (
     abi: EnglishAuctionABI,
     functionName: 'bid',
     chainId: Sepolia.chainId,
-    args: [5], // Assuming '3' is a valid argument for your 'bid' function
+    args: [auctionId], // Assuming '3' is a valid argument for your 'bid' function
     overrides: {
       value: ethers.utils.parseEther('0.1'), // Assuming 0.1 ETH is a valid value
     },

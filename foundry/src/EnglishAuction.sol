@@ -179,4 +179,12 @@ contract EnglishAuction {
     function total_auctions() external view returns (uint) {
         return auctionCount;
     }
+
+    // Function to check if an auction is already over
+    function isAuctionOver(uint _auctionId) external view returns (bool) {
+        Auction storage auction = auctions[_auctionId];
+        require(_auctionId <= auctionCount, "Auction does not exist."); // Make sure the auction exists
+        return (block.timestamp >= auction.endAt || auction.ended || auction.cancelled);
+    }
+
 }
