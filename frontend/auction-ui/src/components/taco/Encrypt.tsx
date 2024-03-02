@@ -1,7 +1,7 @@
 import { ThresholdMessageKit } from '@nucypher/taco';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import { DEFAULT_MESSAGE } from './config';
 import RenderIfHtml from './RenderIfHtml';
+import { useState } from 'react';
 
 interface Props {
   enabled: boolean;
@@ -14,7 +14,9 @@ export const Encrypt = ({ encrypt, encryptedMessage, enabled }: Props) => {
     return <></>;
   }
   
-  const onClick = () => encrypt(DEFAULT_MESSAGE);
+  const [message, setMessage] = useState('');
+
+  const onClick = () => encrypt(message);
 
   const EncryptedMessageContent = () => {
     if (!encryptedMessage) {
@@ -28,6 +30,7 @@ export const Encrypt = ({ encrypt, encryptedMessage, enabled }: Props) => {
     return (
       <>
         <div>
+            
           <h3>Encrypted ciphertext:</h3>
           <pre className="ciphertext">{encodedCiphertext}</pre>
           <CopyToClipboard text={encodedCiphertext}>
@@ -41,6 +44,13 @@ export const Encrypt = ({ encrypt, encryptedMessage, enabled }: Props) => {
 
   return (
     <div>
+          <input
+            className='bg-white text-black text-lg font-semibold rounded-lg text-center'
+            type="text"
+            placeholder='NFT Metadata'
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+          />
       <h2>Step 2 - Set conditions and Encrypt a message</h2>
       <button onClick={onClick}>Encrypt</button>
       {EncryptedMessageContent()}

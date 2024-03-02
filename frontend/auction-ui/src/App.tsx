@@ -7,10 +7,9 @@ import LandingPage from "./LandingPage";
 import BidFairValue from "./BidFairValue";
 import BidHidden from "./BidHidden";
 
-
 import "@rainbow-me/rainbowkit/styles.css"
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit"
-import { Chain, configureChains, createClient, WagmiConfig } from "wagmi"
+import { Chain, configureChains, createClient, WagmiConfig} from "wagmi"
 import { sepolia, goerli, arbitrum, arbitrumGoerli, baseGoerli, foundry, hardhat, polygonMumbai } from "wagmi/chains"
 import { infuraProvider } from "wagmi/providers/infura"
 import { publicProvider } from "wagmi/providers/public"

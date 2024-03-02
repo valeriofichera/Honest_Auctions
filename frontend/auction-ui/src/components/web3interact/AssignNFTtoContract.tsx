@@ -7,6 +7,7 @@ import { useState } from 'react';
 export const ApproveAuction = () => {
     const { isConnected } = useAccount();
     const [nftId, setNftId] = useState(''); // State to hold the NFT ID input by the user
+    const [nftAddress, setNftAddress] = useState('');
 
     const { execute, status, isLoading } = useContractFunction({
       functionName: 'approve',
@@ -15,20 +16,29 @@ export const ApproveAuction = () => {
   });
 
   if (isConnected) return (
-    <div className="text-md justify-center flex items-center">
+    <div className="text-md justify-center flex flex-col gap-5 items-center">
+      <div className='flex flex-col gap-5'>
           <input
-            type="number" // Assuming NFT ID is a number
+              className='bg-white text-black text-lg font-semibold rounded-lg text-center'
+              type="text"
+              placeholder='NFT Contract Address'
+              value={nftAddress}
+              onChange={(e) => setNftAddress(e.target.value)}
+            />
+          <input
+            className='bg-white text-black text-lg font-semibold rounded-lg text-center'
+            type="number"
+            placeholder='NFT ID'
             value={nftId}
             onChange={(e) => setNftId(e.target.value)}
-            className="mr-2 py-2 px-4"
-            placeholder="Enter NFT ID"
           />
+      </div>
           <button
-            className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded"
             onClick={execute}
             disabled={isLoading}
           >
-            {isLoading ? 'Creating...' : 'Approve NFT to Auction Contract'}
+            {isLoading ? 'Approving...' : 'Approve'}
           </button>
           <p>{status}</p>
     </div>

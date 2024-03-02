@@ -50,8 +50,8 @@ export const FairValueAuctions = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
                     {formattedData.map((auction, index) => (
                         <Link to={`/auction/fair-value/${auction.nftId}`} key={index} className="p-4 border rounded-lg hover:shadow-lg transition-shadow w-fit">
-                            <div className='flex flex-row justify-between items-center'>
-                                <img src={NFT} alt="NFT" className='h-32 mr-10'/>
+                            <div className='flex flex-row justify-between items-center rounded-lg'>
+                                <img src={`https://pbs.twimg.com/media/GHoZZbPXMAAFciA?format=jpg&name=medium`} alt="NFT" className='rounded-lg h-32 mr-10'/>
                             <div>
                             <h4 className="text-xl font-medium">NFT ID: {auction.nftId}</h4>
                             <p className="text-gray-600">Starting Bid: {auction.startingBid} ETH</p>

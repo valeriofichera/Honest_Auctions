@@ -87,8 +87,6 @@ export default function Taco() {
 
   return (
     <div>
-      <h1>Taco</h1>
-
       <NFTConditionBuilder
         enabled={true}
         condition={condition}

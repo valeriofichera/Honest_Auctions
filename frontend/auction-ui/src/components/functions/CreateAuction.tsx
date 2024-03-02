@@ -7,23 +7,25 @@ export const CreateAuction = () => {
   const { isConnected } = useAccount();
   const [status, setStatus] = useState('');
 
-  const nft_address = '0x1EFbd93f7e7F0ccC80fc384A401780189957A7C0';
-  const nft_id = 5;
-  const starting_price = 1;
-  const duration = 100;
-  const reserve_price = 3;
+  const [nftAddress, setNftAddress] = useState('');
+  const [nftId, setNftId] = useState();
+  const [startingPrice, setStartingPrice] = useState();
+  const [duration, setDuration] = useState();
+  const [reservePrice, setReservePrice] = useState();
+
+
   
   const { config } = usePrepareContractWrite({
-    address: '0x1EFbd93f7e7F0ccC80fc384A401780189957A7C0',
+    address: '0xf06E084a84846eBCF3e9BbB6045D5201073FBF0E',
     abi: EnglishAuctionABI,
-    functionName: 'create',
+    functionName: 'createAndStartAuction',
     chainId: 11155111,
     args: [
-        nft_address,
-        nft_id,
-        starting_price,
+        nftAddress,
+        nftId,
+        startingPrice,
         duration,
-        reserve_price
+        reservePrice
     ],
   });
 
@@ -46,14 +48,53 @@ export const CreateAuction = () => {
     <div className="text-md justify-center flex items-center">
       {isConnected ? (
         <>
+        <div className='flex flex-col gap-5'>
+        <div className='flex flex-col gap-5'>
+            <input
+              className='bg-white text-black text-lg font-semibold rounded-lg text-center'
+              type="text"
+              placeholder='Contract Address'
+              value={nftAddress}
+              onChange={(e) => setNftAddress(e.target.value)}
+            />
+            <input
+              className='bg-white text-black text-lg font-bold rounded-lg text-center'
+              type="string"
+              placeholder='NFT ID'
+              value={nftId}
+              onChange={(e) => setNftId(Number(e.target.value))}
+            />
+            <input
+              className='bg-white text-black text-lg font-bold rounded-lg text-center'
+              type="number"
+              placeholder='Starting Price in ETH'
+              value={startingPrice}
+              onChange={(e) => setStartingPrice(Number(e.target.value))}
+            />
+          <input
+              className='bg-white text-black text-lg font-bold rounded-lg text-center'
+              type="number"
+              value={duration}
+              placeholder= 'Duration (in Blocks)'
+              onChange={(e) => setDuration(Number(e.target.value))}
+            />
+            <input
+              className='bg-white text-black text-lg font-bold rounded-lg text-center'
+              type="number"
+              value={reservePrice}
+              placeholder= 'Reserve Price'
+              onChange={(e) => setReservePrice(Number(e.target.value))}
+            />
+        </div>
           <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded"
             onClick={createAuction}
             disabled={isLoading}
           >
             {isLoading ? 'Creating...' : 'Create Auction'}
           </button>
           <p>{status}</p>
+      </div>
         </>
       ) : (
         <p>Please connect your wallet.</p>
