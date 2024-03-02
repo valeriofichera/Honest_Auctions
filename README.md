@@ -49,39 +49,6 @@ const addresses: AddressMapping = {
     NFT_ADDRESS: "0x5E2aAF9738678f210c3dd780AD5D969e8313C6C2",
     AUCTION_ADDRESS: "0x6F08F61D707361a60A730105F5F8f38f150bf4a5",
   },
-  // Add other chains similarly
-};
-```
-
-We invite you to explore our platform and experience the future of NFT auctions!
-```
-
-### Recommendations for Further Improvement:
-
-1. **Quick Start Guide**: Include a "Getting Started" section with instructions on how users can start using your dApp, including any necessary setup or configuration steps.
-
-2. **Contribution Guidelines**: If your project is open source, include contribution guidelines to encourage community contributions.
-
-3. **License**: Specify the license under which the project is released, which informs users about what they can and cannot do with your code.
-
-4. **Contact Information**: Provide contact information or links to community channels (like Discord, Telegram, or Twitter) for users who have questions or need support.
-
-5. **FAQ or Troubleshooting Section**: Address common questions or issues users might encounter.
-
-Remember, a well-crafted README helps make your project more approachable and can significantly improve user engagement.
-
-### List of chains with the deployed contracts:
-
-```ts
-const addresses: AddressMapping = {
-  [sepolia.id]: {
-    NFT_ADDRESS: "0x69788155033fFb8BbCE3eAB73c14069608844a22",
-    AUCTION_ADDRESS: "0xE2464512e86Fb48807414619CdE2d57Cf88f81c3",
-  },
-  [polygonMumbai.id]: {
-    NFT_ADDRESS: "0x5E2aAF9738678f210c3dd780AD5D969e8313C6C2",
-    AUCTION_ADDRESS: "0x6F08F61D707361a60A730105F5F8f38f150bf4a5",
-  },
   [baseSepolia.id]: {
     NFT_ADDRESS: "0x105Bef74e3E6A741E6A2362Fd5c50Bd339F9BeDD",
     AUCTION_ADDRESS: "0x463a7b5616e2e005fDe16DB1065A1F375897D22D",
@@ -100,3 +67,18 @@ const addresses: AddressMapping = {
   },
 };
 ```
+
+We invite you to explore our platform and experience the future of NFT auctions!
+```
+
+### Recommendations for Further Improvement:
+
+1. **Quick Start Guide**: Include a "Getting Started" section with instructions on how users can start using your dApp, including any necessary setup or configuration steps.
+
+2. **Contribution Guidelines**: If your project is open source, include contribution guidelines to encourage community contributions.
+
+3. **License**: Specify the license under which the project is released, which informs users about what they can and cannot do with your code.
+
+4. **Contact Information**: Provide contact information or links to community channels (like Discord, Telegram, or Twitter) for users who have questions or need support.
+
+5. **FAQ or Troubleshooting Section**: Address common questions or issues users might encounter.
