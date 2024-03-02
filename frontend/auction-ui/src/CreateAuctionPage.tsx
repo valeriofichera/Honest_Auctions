@@ -2,6 +2,7 @@ import HeaderDapp from './components/HeaderDapp.tsx';
 import ApproveAuction from './components/web3interact/AssignNFTtoContract.tsx';
 import { CreateAuction } from './components/functions/CreateAuction.tsx';
 import { ReadAuction } from './components/web3fetch/ReadAuctions.tsx';
+import Taco from './components/taco/Taco.tsx';
 
 function CreateAuctionPage() {
 
@@ -14,6 +15,7 @@ function CreateAuctionPage() {
                     <div className='rounded-3xl bg-slate-400/80 bg-opacity-75 shadow-xl border-green-500/100 p-2 justify-between items-center'>
                         <ApproveAuction />
                         <CreateAuction />
+                        <Taco />
                     </div>
                 </div>
             </div>

@@ -1,10 +1,10 @@
 import AuctionIdInfoEncrypted from '../components/functions/AuctionIdInfo.tsx'
 import { useParams } from 'react-router-dom';
 
-import usdc from "../assets/usdc.svg"
-import NFT from '../assets/example_nft.svg'
+//import NFT from '../assets/example_nft.svg'
 
 function NFTDisplay() {
+	const NFT = "https://i.seadn.io/gae/8A-rNl0w3nJfyWMGo_0FyiVeQmoDdY3WwxUHzydL9Umx3uGZA9xlT_IU5qZc-Bxh19Pl3k9MlTHJ32MFunb2vcMtMuexUMcjqbJa?auto=format&dpr=1&w=1000"
 	const { auctionId } = useParams();
 
   if (auctionId) return (
