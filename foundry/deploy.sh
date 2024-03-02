@@ -24,12 +24,12 @@ fi
 echo "Deploying DenverAuctionNFT..."
 # forge script ./script/DeployDenverAuctionNFT --broadcast --rpc-url $RPC_URL --private-key $PRIVATE_KEY -vvv
 # forge create --rpc-url $RPC_URL --private-key $PRIVATE_KEY --constructor-args $PUBLIC_ADDRESS --etherscan-api-key $ETHERSCAN_API_KEY --verify src/DenverAuctionNFT.sol:DenverAuctionNFT
-forge script script/DenverAuctionNFT.s.sol:DeployDenverAuctionNFT --fork-url $ARBITRUM_RPC_URL --private-key $PRIVATE_KEY --broadcast --etherscan-api-key $ETHERSCAN_API_KEY --verify -vvv
+forge script script/DenverAuctionNFT.s.sol:DeployDenverAuctionNFT --fork-url $LINEA_RPC_URL --private-key $PRIVATE_KEY --broadcast --etherscan-api-key $ETHERSCAN_API_KEY --verify -vvv
 
 # Deploy EnglishAuction
 echo "Deploying EnglishAuction..."
 # forge script ./script/DeployEnglishAuction --broadcast --rpc-url $RPC_URL --private-key $PRIVATE_KEY -vvv
 # forge create --rpc-url $RPC_URL --private-key $PRIVATE_KEY --etherscan-api-key $ETHERSCAN_API_KEY --verify src/EnglishAuction.sol:EnglishAuction
-forge script script/EnglishAuction.s.sol:DeployEnglishAuction --fork-url $ARBITRUM_RPC_URL --private-key $PRIVATE_KEY --broadcast --etherscan-api-key $ETHERSCAN_API_KEY --verify -vvv
+forge script script/EnglishAuction.s.sol:DeployEnglishAuction --fork-url $LINEA_RPC_URL --private-key $PRIVATE_KEY --broadcast --etherscan-api-key $ETHERSCAN_API_KEY --verify -vvv
 
 echo "Deployment completed."
