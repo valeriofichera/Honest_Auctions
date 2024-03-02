@@ -1,4 +1,4 @@
-
+![Logo](./images/Logo.svg)
 # Honest Auctions
 
 **Honest Auctions** is a novel NFT Auction Platform designed to revolutionize the way NFT auctions are conducted through the use of Fully Homomorphic Encryption (FHE).
