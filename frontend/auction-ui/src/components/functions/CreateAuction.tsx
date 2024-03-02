@@ -16,7 +16,7 @@ export const CreateAuction = () => {
   const { config } = usePrepareContractWrite({
     address: '0x1EFbd93f7e7F0ccC80fc384A401780189957A7C0',
     abi: EnglishAuctionABI,
-    functionName: 'create',
+    functionName: 'createAndStartAuction',
     chainId: 11155111,
     args: [
         nft_address,
