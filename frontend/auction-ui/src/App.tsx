@@ -20,20 +20,20 @@ import { Buffer } from 'buffer';
 function App() {
 	window.Buffer = Buffer;
 
-	// const mantleTestnet: Chain = {
-	// 	id: 31337,
-	// 	name: "Mantle Testnet",
-	// 	network: "hardhat",
-	// 	iconUrl: "https://s2.coinmarketcap.com/static/img/coins/64x64/27075.png",
+	// const linea: Chain = {
+	// 	id: 80001,
+	// 	name: "Linea",
+	// 	network: "Mumbai",
+	// 	iconUrl: "https://s2.coinmarketcap.com/static/img/coins/64x64/27657.png",
 	// 	iconBackground: "#000000",
 	// 	nativeCurrency: {
 	// 		decimals: 18,
-	// 		name: "Mantle Testnet Token",
-	// 		symbol: "MNT-T",
+	// 		name: "Linea ETH",
+	// 		symbol: "ETH",
 	// 	},
 	// 	rpcUrls: {
 	// 		default: {
-	// 			http: ["http://127.0.0.1:8545"],
+	// 			http: ["https://endpoints.omniatech.io/v1/matic/mumbai/public"],
 	// 		},
 	// 		public: {
 	// 			http: [],
@@ -41,8 +41,8 @@ function App() {
 	// 		},
 	// 	},
 	// 	blockExplorers: {
-	// 		default: { name: "Testnet Explorer", url: "https://explorer.testnet.mantle.xyz/" },
-	// 		etherscan: { name: "SnowTrace", url: "https://snowtrace.io" },
+	// 		default: { name: "Testnet Explorer", url: "" },
+	// 		etherscan: { name: "SnowTrace", url: "" },
 	// 	},
 	// 	testnet: true,
 	// }
