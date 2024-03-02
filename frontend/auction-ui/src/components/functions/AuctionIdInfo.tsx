@@ -49,15 +49,14 @@ function AuctionIdInfo({ auctionId }: { auctionId: number }) {
 
 
   return (
-    <div className="mt-5 p-6 w-full">
+    <div className="w-96  mt-5 p-6">
       <h3 className="text-2xl font-semibold mb-4">Auction ID: {auctionId}</h3>
       {formattedData ? (
         <div className="">
-          <div className="p-4 border rounded-lg hover:shadow-lg transition-shadow">
+          <div className="p-4 rounded-lg hover:shadow-lg transition-shadow">
             <h4 className="text-xl font-medium">NFT ID: {formattedData.nftId}</h4>
-            <p className="text-gray-600">Starting Bid: {formattedData.startingBid} ETH</p>
-            <p className="text-gray-600">Ends In: {Number(formattedData.endAt) - blockNumber} blocks</p>
-            <p className="text-gray-600">Highest Bid: {formattedData.highestBid} ETH</p>
+            <p className="text-white">Starting Bid: encrypted</p> {/*Should we hide it as well? {formattedData.startingBid} */}
+            <p className="text-white">Ends In: {Number(formattedData.endAt) - blockNumber} blocks</p>
             <p className={`text-sm ${formattedData.started ? 'text-green-500' : 'text-red-500'}`}>{formattedData.started ? 'Auction Started' : 'Auction Not Started'}</p>
             <p className={`text-sm ${formattedData.ended ? 'text-red-500' : 'text-green-500'}`}>{formattedData.ended ? 'Auction Ended' : 'Auction Active'}</p>
           </div>

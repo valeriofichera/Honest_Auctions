@@ -1,31 +1,29 @@
+import AuctionIdInfoEncrypted from '../components/functions/AuctionIdInfo.tsx'
+import { useParams } from 'react-router-dom';
 
 import usdc from "../assets/usdc.svg"
 //import NFT from '../assets/example_nft.svg'
 
 function NFTDisplay() {
 	const NFT = "https://i.seadn.io/gae/8A-rNl0w3nJfyWMGo_0FyiVeQmoDdY3WwxUHzydL9Umx3uGZA9xlT_IU5qZc-Bxh19Pl3k9MlTHJ32MFunb2vcMtMuexUMcjqbJa?auto=format&dpr=1&w=1000"
+	const { auctionId } = useParams();
 
-	return (
-		<div className='rounded-3xl col-start-1 col-span-5 bg-[#0B0C15]/90 p-5 max-w-fit gap-5 shadow-xl justify-between items-center'>
+  if (auctionId) return (
+
+		<div className='rounded-3xl col-start-2 col-span-5 bg-[#0B0C15]/90 shadow-lg shadow-slate-800 p-5 max-w-fit gap-5 justify-between items-center'>
 		<div className="grid grid-cols-6 gap-5">
-			<div className="col-start-1 col-span-6 gap-10 justify-center items-center flex flex-col">
-			<div className="flex flex-row gap-5 justify-center items-center">
-				<img className="w-8" src={usdc} alt="" />
-				<div className="text-3xl font-light">NFT Name</div>
+			<div className="col-start-1 col-span-6 gap-3 justify-center items-center flex flex-col">
+			<div className="flex flex-col gap-1 justify-center items-center">
+				<div className="text-3xl font-bold">Fair-Value Auction</div>
+				<div className="text-md mb-5">all Bids are encrypted</div>
 			</div>
 
-			<div className="flex flex-row gap-3 justify-center shadow-[#6c8dc3] shadow-xl items-center">
-				<img className="w-64" src={NFT} alt="" />
+			<div className="bg-[#0B0C15] rounded-3xl flex flex-row gap-1 justify-center shadow-[#6c8dc3] shadow-inner items-center">
+				<img className="w-64 mt-[-10px]" src={NFT} alt="" />
 			</div>
 
-			<div className="flex flex-row gap-3 justify-center items-center">
-				<div className="font-bold">by: </div>
-				<div>0xe2D3C55a61BE30ce58324Be5bd188F1bEAc06f58</div>
-			</div>
-
-			<div className="flex flex-row gap-3 justify-center items-center">
-				<div className="font-bold">Timestamp: </div>
-				<div>12/12/2023 01:01:01</div>
+			<div className='mt-[-25px]'>
+				<AuctionIdInfoEncrypted auctionId={Number(auctionId)} />
 			</div>
 
 			</div>
