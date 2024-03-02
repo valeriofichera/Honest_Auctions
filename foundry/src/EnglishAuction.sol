@@ -45,6 +45,7 @@ contract EnglishAuction {
 
         Auction storage auction = auctions[++auctionCount];
 
+        // auction.auctionId = auctionCount;
         auction.nft = IERC721(_nft);
         auction.nftId = _nftId;
         auction.seller = payable(msg.sender);
