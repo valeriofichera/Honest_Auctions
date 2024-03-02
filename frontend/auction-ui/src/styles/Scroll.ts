@@ -1,24 +1,23 @@
-
-
 // Get the element
-const element = document.querySelector('.show') as HTMLElement;
+const element = document.querySelector(".show")!;
 
 // Create the observer
-const observer = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
-  entries.forEach((entry: IntersectionObserverEntry) => {
-    if (entry.isIntersecting) {
-      // Element is in the viewport, add the class
-      entry.target.classList.add('in-viewport');
-    } else {
-      // Element is not in the viewport, remove the class
-      entry.target.classList.remove('in-viewport');
-    }
-  });
-});
+const observer = new IntersectionObserver(
+  (entries: IntersectionObserverEntry[]) => {
+    entries.forEach((entry: IntersectionObserverEntry) => {
+      if (entry.isIntersecting) {
+        // Element is in the viewport, add the class
+        entry.target.classList.add("in-viewport");
+      } else {
+        // Element is not in the viewport, remove the class
+        entry.target.classList.remove("in-viewport");
+      }
+    });
+  },
+);
 
 // Start observing the element
 observer.observe(element);
-
 
 // const observer = new IntersectionObserver((entries) => {
 //     entries.forEach((entry) => {
@@ -33,6 +32,6 @@ observer.observe(element);
 // );
 
 // const hiddenElements = document.querySelectorAll(".hidden");
-// hiddenElements.forEach((element) => {    
+// hiddenElements.forEach((element) => {
 //     observer.observe(element);
 // });

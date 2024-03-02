@@ -1,20 +1,20 @@
-import { useContractWrite, usePrepareContractWrite } from 'wagmi';
+import { useContractWrite, usePrepareContractWrite } from "wagmi";
 
-import EnglishAuctionABI from '../../../constants/abi/EnglishAuction.ts';
-import { ethers } from 'ethers';
-import { Sepolia } from '@usedapp/core';
+import EnglishAuctionABI from "../../../constants/abi/EnglishAuction.ts";
+import { ethers } from "ethers";
+import { Sepolia } from "@usedapp/core";
+import { sepolia } from "viem/chains";
+import addresses from "../../../constants/deployed_address.ts";
 
-export const Bid123 = (
-  { auctionId }: { auctionId: string }
-) => {
+export const Bid123 = ({ auctionId }: { auctionId: string }) => {
   const { config } = usePrepareContractWrite({
-    address: '0xf06E084a84846eBCF3e9BbB6045D5201073FBF0E',
+    address: addresses[sepolia.id]?.AUCTION_ADDRESS,
     abi: EnglishAuctionABI,
-    functionName: 'bid',
+    functionName: "bid",
     chainId: Sepolia.chainId,
     args: [auctionId], // Assuming '3' is a valid argument for your 'bid' function
     overrides: {
-      value: ethers.utils.parseEther('0.1'), // Assuming 0.1 ETH is a valid value
+      value: ethers.utils.parseEther("0.1"), // Assuming 0.1 ETH is a valid value
     },
   });
 
@@ -22,19 +22,23 @@ export const Bid123 = (
 
   return (
     <div>
-      <button disabled={!write || isLoading} onClick={() => write?.()} className=' bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded'>
+      <button
+        disabled={!write || isLoading}
+        onClick={() => write?.()}
+        className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded"
+      >
         Place Bid
       </button>
       {isLoading && <div>Transaction in progress...</div>}
       {isSuccess && <div>Transaction successful! Hash: {data?.hash}</div>}
     </div>
   );
-}
+};
 
 export default Bid123;
 
 // export const Bid123 = () => {
-  
+
 //   const { isConnected } = useAccount();
 //   const [status, setStatus] = useState('');
 
@@ -46,13 +50,11 @@ export default Bid123;
 //     abi: EnglishAuctionABI,
 //     functionName: 'bid',
 //     chainId: 11155111,
-//     args: [  
+//     args: [
 //         3
 //     ],
 //     value: parseEther(0.1),
 //   });
-
-  
 
 //   const createBid = () => {
 //     write?.();
@@ -79,7 +81,7 @@ export default Bid123;
 //               value={auctionId}
 //               onChange={(e) => setAuctionId(e.target.value)}
 //             />
-            
+
 //         </div>
 //           <button
 //             className=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded"
