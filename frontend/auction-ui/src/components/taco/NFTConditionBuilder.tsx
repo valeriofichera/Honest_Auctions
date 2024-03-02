@@ -14,8 +14,6 @@ export const NFTConditionBuilder = ({
   setConditions,
   enabled,
 }: Props) => {
-  const { library } = useEthers();
-
 
   const contractAddress = DEFAULT_NFT_CONTRACT;
   const tokenId = '1';
