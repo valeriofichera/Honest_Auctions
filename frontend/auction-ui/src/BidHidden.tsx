@@ -32,6 +32,7 @@ function BidHidden() {
 							</div>
 						</div>
 					</div>
+          
 		</div>
 
 
