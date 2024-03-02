@@ -1,8 +1,7 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-@import 'animate.css';
-
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "animate.css";
 
 /* HERO */
 
@@ -31,6 +30,3 @@
   font-size: 70px;
   color: white;
 }
-
-
-

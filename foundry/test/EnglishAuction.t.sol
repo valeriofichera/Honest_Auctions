@@ -48,4 +48,54 @@ contract EnglishAuctionTest is Test, MockERC721Receiver {
         EnglishAuction.Auction memory auctionInfo = auction.auction_info(auctionId);
         assertTrue(auctionInfo.started, "Auction should have started"); // Check that the auction has started
     }
+
+
+    function testSuccessfulBid() public {
+        testCreateAndStartAuction();
+        uint auctionId = auction.auctionCount();
+        
+        address bidder1 = address(0x123);
+        address bidder2 = address(0x456);
+
+        // Bid by bidder1
+        vm.deal(bidder1, 2 ether); // Provide some ether to the bidder address
+        vm.prank(bidder1); // Simulate bidder1's address
+        auction.bid{value: 2 ether}(auctionId); // Bid with 1.1 ether
+
+        // Bid by bidder2
+        vm.deal(bidder2, 3 ether); // Provide some ether to the bidder address
+        vm.prank(bidder2); // Simulate bidder2's address
+        auction.bid{value: 3 ether}(auctionId); // Bid with 2 ether
+
+        // // Move forward in time to after the auction end
+        vm.warp(block.timestamp + 4 days);
+        auction.auction_info(auctionId).ended == true;
+
+        uint contractBalance = address(auction).balance;
+        emit log_named_uint("Auction contract balance is", contractBalance);
+        assertEq(contractBalance, 5 ether, "The contract's balance should be 2 ether");
+
+        // // End the auction
+        // auction.end(auctionId);
+
+        // // Check final auction state
+        // EnglishAuction.Auction memory endedAuction = auction.auction_info(auctionId);
+        // assertEq(endedAuction.highestBidder, bidder2, "Bidder 2 should have won the auction");
+        // assertEq(endedAuction.highestBid, 2 ether, "Highest bid should be 2 ether");
+    }
+
+    // function testWithdrawalAfterBid() public {
+    //     testSuccessfulBid();
+    //     uint auctionId = auction.auctionCount();
+
+    //     address bidder1 = address(0x123);
+    //     uint bidder1InitialBalance = bidder1.balance;
+
+    //     // Bidder1 withdraws their bid
+    //     vm.prank(bidder1); // Simulate bidder1's address
+    //     auction.withdraw(auctionId);
+
+    //     uint bidder1FinalBalance = bidder1.balance;
+    //     //assert(bidder1FinalBalance > bidder1InitialBalance, "Bidder 1 should have withdrawn their funds");
+    // }
 }
