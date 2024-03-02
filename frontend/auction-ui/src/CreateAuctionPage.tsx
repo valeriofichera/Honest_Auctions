@@ -12,7 +12,7 @@ function CreateAuctionPage() {
 
             <div className="grid grid-cols-12 gap-5 px-24">
                 <div className="col-start-1 col-span-12">
-                    <div className='rounded-3xl bg-slate-400/80 bg-opacity-75 shadow-xl border-green-500/100 p-2 justify-between items-center'>
+                    <div className='bg-[#0B0C15]/90 shadow-lg shadow-slate-800 p-5 max-w-fit gap-5 justify-between items-center'>
                         <ApproveAuction />
                         <CreateAuction />
                         <Taco />

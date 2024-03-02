@@ -8,7 +8,7 @@ export const CreateAuction = () => {
   const [status, setStatus] = useState('');
 
   const nft_address = '0x1EFbd93f7e7F0ccC80fc384A401780189957A7C0';
-  const nft_id = 1;
+  const nft_id = 5;
   const starting_price = 1;
   const duration = 100;
   const reserve_price = 3;
