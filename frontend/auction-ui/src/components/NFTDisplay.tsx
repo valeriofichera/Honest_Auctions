@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 //import NFT from '../assets/example_nft.svg'
 
 function NFTDisplay() {
-	const NFT = "https://i.seadn.io/gae/8A-rNl0w3nJfyWMGo_0FyiVeQmoDdY3WwxUHzydL9Umx3uGZA9xlT_IU5qZc-Bxh19Pl3k9MlTHJ32MFunb2vcMtMuexUMcjqbJa?auto=format&dpr=1&w=1000"
+	const NFT = "https://pbs.twimg.com/media/GHoZZbPXMAAFciA?format=jpg&name=medium"
 	const { auctionId } = useParams();
 
   if (auctionId) return (
@@ -18,7 +18,7 @@ function NFTDisplay() {
 			</div>
 
 			<div className="bg-[#0B0C15] rounded-3xl flex flex-row gap-1 justify-center shadow-[#6c8dc3] shadow-inner items-center">
-				<img className="w-64 mt-[-10px]" src={NFT} alt="" />
+				<img className="rounded-lg w-64 mt-[-10px]" src={NFT} alt="" />
 			</div>
 
 			<div className='mt-[-25px]'>
