@@ -1,7 +1,6 @@
 import AuctionIdInfoEncrypted from '../components/functions/AuctionIdInfo.tsx'
 import { useParams } from 'react-router-dom';
 
-import usdc from "../assets/usdc.svg"
 //import NFT from '../assets/example_nft.svg'
 
 function NFTDisplay() {
