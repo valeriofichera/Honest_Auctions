@@ -15,6 +15,7 @@ function CreateAuctionPage() {
                     <div className='rounded-3xl bg-slate-400/80 bg-opacity-75 shadow-xl border-green-500/100 p-2 justify-between items-center'>
                         <ApproveAuction />
                         <CreateAuction />
+                        <Taco />
                     </div>
                 </div>
             </div>

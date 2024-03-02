@@ -1,5 +1,4 @@
 import { ThresholdMessageKit } from '@nucypher/taco';
-import { useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { DEFAULT_MESSAGE } from './config';
 import RenderIfHtml from './RenderIfHtml';
@@ -14,11 +13,8 @@ export const Encrypt = ({ encrypt, encryptedMessage, enabled }: Props) => {
   if (!enabled) {
     return <></>;
   }
-
-  const [plaintext, setPlaintext] = useState(DEFAULT_MESSAGE);
   
-
-  const onClick = () => encrypt(plaintext);
+  const onClick = () => encrypt(DEFAULT_MESSAGE);
 
   const EncryptedMessageContent = () => {
     if (!encryptedMessage) {
@@ -46,11 +42,6 @@ export const Encrypt = ({ encrypt, encryptedMessage, enabled }: Props) => {
   return (
     <div>
       <h2>Step 2 - Set conditions and Encrypt a message</h2>
-      <input
-        type="string"
-        value={plaintext}
-        onChange={(e) => setPlaintext(e.currentTarget.value)}
-      />
       <button onClick={onClick}>Encrypt</button>
       {EncryptedMessageContent()}
     </div>

@@ -10,7 +10,7 @@ import {
 import { Mumbai, Sepolia, useEthers } from '@usedapp/core';
 import { ethers } from 'ethers';
 import React, { useEffect, useState } from 'react';
-import { useProvider, useSigner } from 'wagmi';
+import { useProvider, useSigner, useAccount, useConnect, useDisconnect, useNetwork } from 'wagmi';
 import { Decrypt } from './Decrypt';
 import { Encrypt } from './Encrypt';
 import { NFTConditionBuilder } from './NFTConditionBuilder';
@@ -20,9 +20,8 @@ import { DEFAULT_DOMAIN, DEFAULT_RITUAL_ID } from './config';
 export default function Taco() {
   const provider = useProvider();
   const { data: signer } = useSigner();
-
-  const { activateBrowserWallet, deactivate, account, switchNetwork } =
-    useEthers();
+  const { isConnected } = useAccount();
+  const { disconnect: deactivate } = useDisconnect();
 
   const [loading, setLoading] = useState(false);
   const [condition, setCondition] = useState<conditions.condition.Condition>();
@@ -40,8 +39,6 @@ export default function Taco() {
       return;
     }
     setLoading(true);
-
-    await switchNetwork(Sepolia.chainId);
 
     const encryptedMessage = await encrypt(
       provider,
@@ -76,11 +73,10 @@ export default function Taco() {
     setLoading(false);
   };
 
-  if (!account) {
+  if (!isConnected) {
     return (
       <div>
         <h2>Web3 Provider</h2>
-        <button onClick={() => activateBrowserWallet()}>Connect Wallet</button>
       </div>
     );
   }
@@ -91,11 +87,7 @@ export default function Taco() {
 
   return (
     <div>
-      <div>
-        <h2>Web3 Provider</h2>
-        <button onClick={deactivate}> Disconnect Wallet</button>
-        {account && <p>Account: {account}</p>}
-      </div>
+      <h1>Taco</h1>
 
       <NFTConditionBuilder
         enabled={true}
