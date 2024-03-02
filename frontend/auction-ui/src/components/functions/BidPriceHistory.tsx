@@ -1,7 +1,7 @@
 import { useContractRead } from 'wagmi'
 //import { contractAddress, contractAbi } from "../../../constants"
 
-function BidPriceHistory() {
+function BidHistory() {
   const contractRead = useContractRead({
     address: ,
     abi: ,

@@ -1,10 +1,11 @@
-import AuctionIdInfoEncrypted from '../components/functions/AuctionIdInfo.tsx'
+import AuctionIdInfo from '../components/functions/AuctionIdInfo.tsx'
 import { useParams } from 'react-router-dom';
 
 import usdc from "../assets/usdc.svg"
 import NFT from '../assets/example_nft.svg'
+import Hidden_NFT from '../assets/no_nft_icon.svg';
 
-function NFTDisplay() {
+function NoNFTDisplay() {
 	const { auctionId } = useParams();
 
   if (auctionId) return (
@@ -13,16 +14,16 @@ function NFTDisplay() {
 		<div className="grid grid-cols-6 gap-5">
 			<div className="col-start-1 col-span-6 gap-3 justify-center items-center flex flex-col">
 			<div className="flex flex-col gap-1 justify-center items-center">
-				<div className="text-3xl font-bold">Fair-Value Auction</div>
-				<div className="text-md mb-5">all Bids are encrypted</div>
+				<div className="text-3xl font-bold">Hidden NFT</div>
+				<div className="text-md">... will reveal after Auction ends</div>
 			</div>
 
 			<div className="bg-[#0B0C15] rounded-3xl flex flex-row gap-1 justify-center shadow-[#6c8dc3] shadow-inner items-center">
-				<img className="w-64 mt-[-10px]" src={NFT} alt="" />
+				<img className="w-64 mt-[-10px]" src={Hidden_NFT} alt="" />
 			</div>
 
 			<div className='mt-[-25px]'>
-				<AuctionIdInfoEncrypted auctionId={Number(auctionId)} />
+				<AuctionIdInfo auctionId={Number(auctionId)} />
 			</div>
 
 			</div>
@@ -32,4 +33,4 @@ function NFTDisplay() {
 	)
 }
 
-export default NFTDisplay;
+export default NoNFTDisplay;

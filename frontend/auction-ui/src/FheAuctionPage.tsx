@@ -15,7 +15,7 @@ function MainPage() {
 
     <div className="grid grid-cols-12 gap-5 px-24">
 
-          <div className="rounded-3xl col-start-1 col-span-6 bg-slate-400/80 shadow-xl border-green-500/100 p-2 justify-between items-center">
+          <div className="col-start-1 col-span-6">
 						<NFTDisplay/>
 					</div>
 
