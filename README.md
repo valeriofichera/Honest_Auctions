@@ -2,4 +2,4 @@
 ## fair-value price discovery trough encryption
 
 
-![https://pbs.twimg.com/media/GHoZZbPXMAAFciA?format=jpg&name=medium]
+![](https://pbs.twimg.com/media/GHoZZbPXMAAFciA?format=jpg&name=medium)
