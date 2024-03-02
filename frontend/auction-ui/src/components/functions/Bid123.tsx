@@ -1,23 +1,28 @@
 import { useContractWrite, usePrepareContractWrite } from 'wagmi';
 
 import EnglishAuctionABI from '../../../constants/abi/EnglishAuction.ts';
-import { parseEther } from "viem";
+import { ethers } from 'ethers';
+import { Sepolia } from '@usedapp/core';
 
-export const Bid123 = () => {
+export const Bid123 = (
+  { auctionId }: { auctionId: string }
+) => {
   const { config } = usePrepareContractWrite({
     address: '0xf06E084a84846eBCF3e9BbB6045D5201073FBF0E',
     abi: EnglishAuctionABI,
     functionName: 'bid',
-    chainId: 11155111,
-    args: [10], // Assuming '3' is a valid argument for your 'bid' function
-    value: parseEther('0.1'),
+    chainId: Sepolia.chainId,
+    args: [5], // Assuming '3' is a valid argument for your 'bid' function
+    overrides: {
+      value: ethers.utils.parseEther('0.1'), // Assuming 0.1 ETH is a valid value
+    },
   });
 
   const { data, isLoading, isSuccess, write } = useContractWrite(config);
 
   return (
     <div>
-      <button disabled={!write || isLoading} onClick={() => write?.()}>
+      <button disabled={!write || isLoading} onClick={() => write?.()} className=' bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-4 rounded'>
         Place Bid
       </button>
       {isLoading && <div>Transaction in progress...</div>}

@@ -1,0 +1,39 @@
+{
+  "products": [
+    {
+      "name": "asdasdasdasd",
+      "owner": "0x0aa69f893bb8eea133eef591c606b7314132ec58",
+      "dueTime": "19:44",
+      "winningPrice": 0,
+      "winner": "None"
+    },
+    {
+      "name": "asdsad",
+      "owner": "0x0aa69f893bb8eea133eef591c606b7314132ec58",
+      "dueTime": "06:47",
+      "winningPrice": 0,
+      "winner": "None"
+    },
+    {
+      "name": "asdasdasd",
+      "owner": null,
+      "dueTime": "06:53",
+      "winningPrice": 0,
+      "winner": "None"
+    },
+    {
+      "name": "asdasdasd",
+      "owner": "0x3f1eae7d46d88f08fc2f8ed27fcb2ab183eb2d0e",
+      "dueTime": "20:52",
+      "winningPrice": 0,
+      "winner": "None"
+    },
+    {
+      "name": "asdsadsad",
+      "owner": "0x3f1eae7d46d88f08fc2f8ed27fcb2ab183eb2d0e",
+      "dueTime": "07:10",
+      "winningPrice": 0,
+      "winner": "None"
+    }
+  ]
+}
