@@ -1,8 +1,10 @@
 
 import usdc from "../assets/usdc.svg"
-import NFT from '../assets/example_nft.svg'
+//import NFT from '../assets/example_nft.svg'
 
 function NFTDisplay() {
+	const NFT = "https://i.seadn.io/gae/8A-rNl0w3nJfyWMGo_0FyiVeQmoDdY3WwxUHzydL9Umx3uGZA9xlT_IU5qZc-Bxh19Pl3k9MlTHJ32MFunb2vcMtMuexUMcjqbJa?auto=format&dpr=1&w=1000"
+
 	return (
 		<div className='rounded-3xl col-start-1 col-span-5 bg-[#0B0C15]/90 p-5 max-w-fit gap-5 shadow-xl justify-between items-center'>
 		<div className="grid grid-cols-6 gap-5">
