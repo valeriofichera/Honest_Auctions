@@ -1,2 +1,2 @@
-# ETHDenver_2024
-Hackathon Submission for ETHDenver 2024
+# Honest Auctions
+## fair-value price discovery trough encryption
