@@ -20,20 +20,20 @@ import { Buffer } from 'buffer';
 function App() {
 	window.Buffer = Buffer;
 
-	// const linea: Chain = {
-	// 	id: 80001,
-	// 	name: "Linea",
-	// 	network: "Mumbai",
-	// 	iconUrl: "https://s2.coinmarketcap.com/static/img/coins/64x64/27657.png",
+	// const fhenix: Chain = {
+	// 	id: 42069,
+	// 	name: "Fhenix Frontier",
+	// 	network: "testnet fhenix",
+	// 	iconUrl: "",
 	// 	iconBackground: "#000000",
 	// 	nativeCurrency: {
 	// 		decimals: 18,
-	// 		name: "Linea ETH",
-	// 		symbol: "ETH",
+	// 		name: "Testnet Fhenix",
+	// 		symbol: "tFHE",
 	// 	},
 	// 	rpcUrls: {
 	// 		default: {
-	// 			http: ["https://endpoints.omniatech.io/v1/matic/mumbai/public"],
+	// 			https: ["https://api.testnet.fhenix.zone:7747"],
 	// 		},
 	// 		public: {
 	// 			http: [],
@@ -41,8 +41,8 @@ function App() {
 	// 		},
 	// 	},
 	// 	blockExplorers: {
-	// 		default: { name: "Testnet Explorer", url: "" },
-	// 		etherscan: { name: "SnowTrace", url: "" },
+	// 		default: { name: "Testnet Explorer", url: "https://explorer.testnet.fhenix.zone" },
+	// 		etherscan: { name: "", url: "" },
 	// 	},
 	// 	testnet: true,
 	// }
