@@ -22,9 +22,9 @@ Our platform ensures fair-value price discovery through the innovative use of en
 
 ## Project Images
 
-Below are the screenshots for the project:
+Below are the screenshots for the project: 
 
-![Screenshot 1](./images/Screenshot%202024-03-02%20at%2008.54.12.png)
+![Screenshot 1](./images/Screenshot%202024-03-02%20at%2008.55.14.png)
 ![Screenshot 2](./images/Screenshot%202024-03-02%20at%2008.54.18.png)
 ![Screenshot 3](./images/Screenshot%202024-03-02%20at%2008.54.25.png)
 ![Screenshot 4](./images/Screenshot%202024-03-02%20at%2008.54.31.png)
