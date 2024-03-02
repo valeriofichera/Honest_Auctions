@@ -122,7 +122,9 @@ contract EnglishAuction {
         if (auction.highestBidder != address(0) && auction.highestBid >= auction.reservePrice && !auction.cancelled) {
             // Transfer NFT to the highest bidder and funds to the seller
             auction.nft.safeTransferFrom(address(this), auction.highestBidder, auction.nftId);
-            auction.seller.transfer(auction.highestBid);
+            //auction.seller.transfer(auction.highestBid);
+            (bool sent, ) = auction.seller.call{value: auction.highestBid}("");
+            require(sent, "Failed to send Ether");
         } else {
             // No valid bids or auction cancelled, return NFT to seller
             auction.nft.safeTransferFrom(address(this), auction.seller, auction.nftId);
