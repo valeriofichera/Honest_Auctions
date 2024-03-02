@@ -1,9 +1,10 @@
 import {
   arbitrumSepolia,
   baseSepolia,
-  sepolia,
-  polygonMumbai,
+  lineaTestnet,
   moonbaseAlpha,
+  polygonMumbai,
+  sepolia,
 } from "viem/chains";
 
 interface ChainId {
@@ -34,6 +35,10 @@ const addresses: AddressMapping = {
   [arbitrumSepolia.id]: {
     NFT_ADDRESS: "0x105Bef74e3E6A741E6A2362Fd5c50Bd339F9BeDD",
     AUCTION_ADDRESS: "0x463a7b5616e2e005fDe16DB1065A1F375897D22D",
+  },
+  [lineaTestnet.id]: {
+    NFT_ADDRESS: "0xa3c6d5340c5E362584e05feAa25BeD080b9E23D9",
+    AUCTION_ADDRESS: "0x734d21C71D2c83A6651c237315396abb0E789F8c",
   },
 };
 
