@@ -9,13 +9,11 @@ const Hero = () => {
         <TypeAnimation
           // Same String at the start will only be typed once, initially
           sequence={[
-            "Buy NFTs at fair-value",
+            "Buy Polkadot Blockspace",
             1000,
-            "Avoid FOMO & Market Manipulation",
+            "Auction off your Blockspace",
             1000,
-            "Gamified Auction Experience",
-            1000,
-            "& more",
+            "Buy it and sell it here!",
             1000,
           ]}
           speed={55} // Custom Speed from 1-99 - Default Speed: 40

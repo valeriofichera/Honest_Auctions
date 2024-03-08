@@ -18,6 +18,7 @@ import {
   goerli,
   hardhat,
   polygonMumbai,
+  moonbaseAlpha,
   sepolia,
 } from "wagmi/chains";
 import { infuraProvider } from "wagmi/providers/infura";
@@ -57,6 +58,7 @@ function App() {
 
   const { chains, provider } = configureChains(
     [
+      moonbaseAlpha,
       sepolia,
       goerli,
       arbitrum,

@@ -13,9 +13,6 @@ function LandingPage() {
   </div> */}
       <Hero />
       <LogoSlider />
-
-      <ThresholdDiagram />
-      <FheDiagram />
     </>
   );
 }

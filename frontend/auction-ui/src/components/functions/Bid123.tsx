@@ -2,16 +2,15 @@ import { useContractWrite, usePrepareContractWrite } from "wagmi";
 
 import EnglishAuctionABI from "../../../constants/abi/EnglishAuction.ts";
 import { ethers } from "ethers";
-import { Sepolia } from "@usedapp/core";
-import { sepolia } from "viem/chains";
+import { moonbaseAlpha } from "viem/chains";
 import addresses from "../../../constants/deployed_address.ts";
 
 export const Bid123 = ({ auctionId }: { auctionId: string }) => {
   const { config } = usePrepareContractWrite({
-    address: addresses[sepolia.id]?.AUCTION_ADDRESS,
+    address: addresses[moonbaseAlpha.id]?.AUCTION_ADDRESS,
     abi: EnglishAuctionABI,
     functionName: "bid",
-    chainId: Sepolia.chainId,
+    chainId: moonbaseAlpha.id,
     args: [auctionId], // Assuming '3' is a valid argument for your 'bid' function
     overrides: {
       value: ethers.utils.parseEther("0.1"), // Assuming 0.1 ETH is a valid value
@@ -22,6 +21,20 @@ export const Bid123 = ({ auctionId }: { auctionId: string }) => {
 
   return (
     <div>
+      <div className="flex flex-row justify-center items-center">
+      <input
+        className="py-[5px] m-2 bg-white text-black text-lg font-bold rounded-lg text-center"
+        type="text"
+        placeholder="Enter Amount in ETH"
+        value={auctionId}
+        onChange={(e) => {
+          // Set the auctionId state
+        }}
+      />
+      <div> ETH
+        </div>
+      </div>
+
       <button
         disabled={!write || isLoading}
         onClick={() => write?.()}

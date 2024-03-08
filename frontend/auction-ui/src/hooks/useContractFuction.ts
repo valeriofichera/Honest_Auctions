@@ -4,12 +4,12 @@ import EnglishAuctionABI from "../../constants/abi/EnglishAuction.ts";
 import DenverAuctionABI from "../../constants/abi/DenverAuctionNFT.ts";
 import { type SendTransactionResult } from "wagmi/actions";
 import addresses from "../../constants/deployed_address.ts";
-import { sepolia } from "viem/chains";
+import { moonbaseAlpha } from "viem/chains";
 
 const useContractFunction = ({
   functionName,
   args,
-  smartContractAddress = addresses[sepolia.id]?.AUCTION_ADDRESS,
+  smartContractAddress = addresses[moonbaseAlpha.id]?.AUCTION_ADDRESS,
 }: {
   functionName: string;
   args: any[];
@@ -19,7 +19,7 @@ const useContractFunction = ({
   const [result, setResult] = useState<SendTransactionResult | null>(null);
 
   const abi =
-    smartContractAddress === addresses[sepolia.id]?.AUCTION_ADDRESS
+    smartContractAddress === addresses[moonbaseAlpha.id]?.AUCTION_ADDRESS
       ? EnglishAuctionABI
       : DenverAuctionABI;
 
@@ -27,7 +27,7 @@ const useContractFunction = ({
     address: smartContractAddress, // Contract address
     abi,
     functionName,
-    chainId: 11155111,
+    chainId: moonbaseAlpha.id,
     args,
   });
 

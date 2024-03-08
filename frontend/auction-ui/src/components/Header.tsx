@@ -31,22 +31,8 @@ function Header() {
           </div>
 
           {/* desktop nav */}
-          <div className="col-start-6 col-span-7 items-center pb-1">
+          <div className="col-start-10 col-span-3 items-center pb-1">
             <nav className="hidden lg:flex gap-5 items-center fadeInRight px-10">
-              <Link
-                to="#ThresholdAuction"
-                smooth
-                className=" mr-36 text-white hover:text-[#2E396D] font-bold text-xl flex flex-col items-center"
-              >
-                Hidden NFT Auction
-              </Link>
-              <Link
-                to="#FheAuction"
-                smooth
-                className="mr-48 text-white hover:text-[#2E396D] font-bold text-xl flex flex-col items-center"
-              >
-                Fair-Value Auction
-              </Link>
 
               <Link
                 to="/auction"

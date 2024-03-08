@@ -2,12 +2,12 @@ import { useContractRead } from "wagmi";
 import EnglishAuctionABI from "../../constants/abi/EnglishAuction.ts";
 import { useEffect, useState } from "react";
 import addresses from "../../constants/deployed_address.ts";
-import { sepolia } from "viem/chains";
+import { moonbaseAlpha } from "viem/chains";
 
 const useContractReadFunction = ({
   functionName,
   args,
-  smartContractAddress = addresses[sepolia.id]?.AUCTION_ADDRESS,
+  smartContractAddress = addresses[moonbaseAlpha.id]?.AUCTION_ADDRESS,
 }: {
   functionName: string;
   args: any[];

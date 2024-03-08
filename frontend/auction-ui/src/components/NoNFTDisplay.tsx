@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import AuctionIdInfo from "../components/functions/AuctionIdInfo.tsx";
 
-import Hidden_NFT from "../assets/no_nft_icon.svg";
+import Hidden_NFT from "../assets/core1.png";
 
 function NoNFTDisplay() {
   const { auctionId } = useParams();
@@ -12,8 +12,8 @@ function NoNFTDisplay() {
         <div className="grid grid-cols-6 gap-5">
           <div className="col-start-1 col-span-6 gap-3 justify-center items-center flex flex-col">
             <div className="flex flex-col gap-1 justify-center items-center">
-              <div className="text-3xl font-bold">Hidden NFT</div>
-              <div className="text-md">... will reveal after Auction ends</div>
+              <div className="text-3xl font-bold">Blockspace NFT</div>
+              <div className="text-md">... sell of your Coretime</div>
             </div>
 
             <div className="bg-[#0B0C15] rounded-3xl flex flex-row gap-1 justify-center shadow-[#6c8dc3] shadow-inner items-center">

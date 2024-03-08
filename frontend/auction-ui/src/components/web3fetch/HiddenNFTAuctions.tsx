@@ -2,7 +2,7 @@ import useContractReadFunction from "../../hooks/useContractRead";
 import { BigNumber } from "ethers";
 import { useBlockNumber } from "wagmi";
 import { Link } from "react-router-dom";
-import Hidden_NFT from "../../assets/no_nft_icon.svg";
+import Hidden_NFT from "../../assets/core1.png";
 
 export interface Auction {
   nft: string;
@@ -48,9 +48,9 @@ export const HiddenNFTAuctions = () => {
     <div className="p-6">
       <div className="flex flex-row justify-between items-start">
         <div>
-          <h3 className="text-2xl font-semibold mb-4">Hidden NFT Auctions</h3>
+          <h3 className="text-2xl font-semibold mb-4">Blockspace Auctions</h3>
           <div className="text-md mt-[-10px] mb-5">
-            NFTs will reveal after the Auctions ends
+            Auction off your Blockspace
           </div>
         </div>
         <Link to="/create-auction">

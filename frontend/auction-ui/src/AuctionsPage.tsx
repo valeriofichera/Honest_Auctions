@@ -15,11 +15,6 @@ function AuctionsPage() {
           </div>
         </div>
 
-        <div className="col-start-1 col-span-12">
-          <div className="rounded-3xl bg-[#0B0C15]/90 bg-opacity-75 shadow-xl border-green-500/100 p-2 justify-between items-center">
-            <FairValueAuctions />
-          </div>
-        </div>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import { useAccount } from "wagmi";
 import useContractFunction from "../../hooks/useContractFuction.ts";
 import { useState } from "react";
 import addresses from "../../../constants/deployed_address.ts";
-import { sepolia } from "viem/chains";
+import { sepolia, moonbaseAlpha } from "viem/chains";
 
 export const ApproveAuction = () => {
   const { isConnected } = useAccount();
@@ -11,8 +11,8 @@ export const ApproveAuction = () => {
 
   const { execute, status, isLoading } = useContractFunction({
     functionName: "approve",
-    args: [addresses[sepolia.id]?.AUCTION_ADDRESS, nftId ? parseInt(nftId) : 1],
-    smartContractAddress: addresses[sepolia.id]?.NFT_ADDRESS,
+    args: [addresses[moonbaseAlpha.id]?.AUCTION_ADDRESS, nftId ? parseInt(nftId) : 1],
+    smartContractAddress: addresses[moonbaseAlpha.id]?.NFT_ADDRESS,
   });
 
   if (isConnected)

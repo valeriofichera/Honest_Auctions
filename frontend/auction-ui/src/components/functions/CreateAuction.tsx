@@ -1,9 +1,9 @@
 import { useAccount, useContractWrite, usePrepareContractWrite } from "wagmi";
 
 import { useEffect, useState } from "react";
-import { sepolia } from "viem/chains";
 import EnglishAuctionABI from "../../../constants/abi/EnglishAuction.ts";
 import addresses from "../../../constants/deployed_address.ts";
+import { moonbaseAlpha } from "viem/chains";
 
 export const CreateAuction = () => {
   const { isConnected } = useAccount();
@@ -16,10 +16,10 @@ export const CreateAuction = () => {
   const [reservePrice, setReservePrice] = useState(0);
 
   const { config } = usePrepareContractWrite({
-    address: addresses[sepolia.id]?.AUCTION_ADDRESS,
+    address: addresses[moonbaseAlpha.id]?.AUCTION_ADDRESS,
     abi: EnglishAuctionABI,
     functionName: "createAndStartAuction",
-    chainId: 11155111,
+    chainId: moonbaseAlpha.id,
     args: [nftAddress, nftId, startingPrice, duration, reservePrice],
   });
 

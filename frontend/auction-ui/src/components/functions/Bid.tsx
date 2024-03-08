@@ -3,9 +3,12 @@ import { useContractWrite, usePrepareContractWrite } from "wagmi";
 import EnglishAuctionABI from "../../../constants/abi/EnglishAuction";
 import { EnglishAuctionContract } from "../../../constants/contract/EnglishAuction";
 import { parseEther } from "viem";
+import { moonbaseAlpha } from "viem/chains";
+import addresses from "../../../constants/deployed_address.ts";
 
 const Bid = () => {
-  const contractAddress = EnglishAuctionContract().sepolia;
+  //const contractAddress = EnglishAuctionContract().sepolia;
+  const contractAddress = addresses[moonbaseAlpha.id]?.AUCTION_ADDRESS;
   const contractAbi = EnglishAuctionABI;
   const [amount, setAmount] = useState<string>("");
   const [auctionID, setAuctionID] = useState<string>("");
